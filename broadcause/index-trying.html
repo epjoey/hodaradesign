@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Register Your Cause</title>
+<script type="text/javascript">
+//change this to true to enable testing mode
+var myfonts_webfont_test = false;
+// change this to false if you're having trouble with WOFFs
+var woffEnabled = true;
+var customPath = "museo/";
+</script>
+<script type="text/javascript" src="museo/MyFontsWebfontsOrderM2846633.js"></script>
+<script type="text/javascript" src="jquery-1.5.1.js"></script>
+
+<style type="text/css">
+html, body { 
+background: #1b3554; 
+}
+body {
+	text-align:center;
+	background:url(assets/bg.jpg) repeat-x;
+	border:0;
+	padding:0;
+	margin:0;
+	max-height:970px;
+	color:#1b3554;
+	font-family: MuseoSans-500;
+}
+
+a {color:#2ca0cd}
+
+p, label {text-align:left;font-size:12px; line-height:1.6em}
+
+#mid {
+	background:url(assets/topbg.jpg) no-repeat; 
+	width:980px; height:385px; 
+	position:relative
+}
+
+#mid>div{position:absolute; font-size:12px; line-height:1.2em}
+#mid>div p{line-height:1.5em}
+
+#icon1 {width:42px; height:41px; top:238px; left:84px; background:url(assets/mega.png) no-repeat}
+#icon1:hover {background-position:0 -41px; cursor:pointer}
+#text1 {top:206px; left:62px;}
+#blurb1 {width:172px; height:150px; top:105px; left:-45px; background:url(assets/mega-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon2 {width:43px; height:41px; top:175px; left:217px; background:url(assets/bubble.png) no-repeat}
+#icon2:hover {background-position:0 -41px; cursor:pointer}
+#text2 {top:141px; left:187px;}
+#blurb2 {width:235px; height:130px; top:66px; left:45px; background:url(assets/bubble-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon3 {width:41px; height:41px; top:130px; left:377px; background:url(assets/pig.png) no-repeat}
+#icon3:hover {background-position:0 -41px; cursor:pointer}
+#text3 {top:110px; left:363px;}
+#blurb3 {width:221px; height:89px; top:55px; left:280px; background:url(assets/pig-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon4 {width:45px; height:41px; top:128px; left:559px; background:url(assets/contacts.png) no-repeat}
+#icon4:hover {background-position:0 -41px; cursor:pointer}
+#text4 {top:95px; left:552px;}
+#blurb4 {width:188px; height:88px; top:60px; left:465px; background:url(assets/contacts-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon5 {width:48px; height:41px; top:171px; left:704px; background:url(assets/cal.png) no-repeat}
+#icon5:hover {background-position:0 -41px; cursor:pointer}
+#text5 {top:137px; left:688px;}
+#blurb5 {width:267px; height:94px; top:93px; left:672px; background:url(assets/cal-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon6 {width:40px; height:41px; top:240px; left:838px; background:url(assets/list.png) no-repeat}
+#icon6:hover {background-position:0 -41px; cursor:pointer}
+#text6 {top:208px; left:827px;}
+#blurb6 {width:138px; height:88px; top:164px; left:818px; background:url(assets/list-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+table {margin:0 auto;} 
+
+form {padding-top:224px}
+
+
+input.text {
+	margin-right:1.6em;
+	height:25px;
+	width:144px;
+	border:solid 1px #ccc;
+	 -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+	behavior: url(border-radius.htc); 
+}
+
+input.create {
+	background: url(assets/submit.png) no-repeat; 
+    height: 25px; 
+    width: 129px;
+	border:0;
+	cursor:pointer;
+}
+
+input.create:hover {background-position:0 -25px; }
+
+p.quote {font-size:22px; line-height:1.5em; margin-bottom:0; padding-bottom:0}
+
+p.quote span {font-family: MuseoSans-500Italic;}
+
+#mid span {text-transform:uppercase}
+
+</style>
+</head>
+
+<body>
+  <div style="width:980px; margin:0 auto">
+    <div style="background:url(assets/header.jpg) top no-repeat; width:980px; height:54px;"></div>
+    <div id="mid">
+      <div id="text1">Broadcast your<br />mission</div>
+      <div id="blurb1"><p><span>Broadcast your mission</span><br /> on a platform optimized for spreading awareness and generating support. Create impact with an audience ready to change the world!</p></div>
+      <div id="icon1" onmouseover="Show('1')" onmouseout="Clear()"></div>
+      
+      <div id="text2">Connect To Your<br />Community</div>
+      <div id="blurb2"><p><span>Connect your users</span><br />by discussing experiences, feelings, and stories around your cause. Aggregate and display ALL social activity about your cause into one place.</p></div>
+      <div id="icon2" onmouseover="Show('2')" onmouseout="Clear()"></div>
+      
+      <div id="text3">Raise Funds!</div>
+      <div id="blurb3"><p><span>Start collecting donations</span><br />in minutes, and let your supporters know the impact of their contributions.</p></div>
+      <div id="icon3" onmouseover="Show('3')" onmouseout="Clear()"></div>
+      
+      <div id="text4">Manage<br />Supporters</div>
+      <div id="blurb4"><p><span>Keep your contacts</span><br />up-to-date about your cause with email management tools.</p></div>
+      <div id="icon4" onmouseover="Show('4')" onmouseout="Clear()"></div>
+            
+      <div id="text5">Promote &amp;<br />Manage Events</div>
+      <div id="blurb5"><p><span>We've teamed with Eventbrite </span><br />to make your events easy and successful. Sell tickets, plan events, manage attendants.</p></div>
+      <div id="icon5" onmouseover="Show('5')" onmouseout="Clear()"></div>
+            
+      <div id="text6">Fulfill Your<br />Wishes</div>
+      <div id="blurb6"><p><span>Create a wishlist</span><br />to inform your audience of the things you need.</p></div>
+      <div id="icon6" onmouseover="Show('6')" onmouseout="Clear()"></div>
+      
+      	
+      <form action="#" method="post">
+        <table cellpadding="0"; cellspacing="0">
+          <tr>
+            <td colspan="3" style="font-size:16px; padding-bottom:.7em">Create Your Free Account</td>
+          </tr>
+          <tr>
+            <td align="left"><label for="email">Your E-mail</label></td>
+            <td align="left" colspan="2"><label for="pword">Create a Password</label></td>
+          </tr>
+          <tr>
+          	<td><input type="text"  class="text" name="email" id="email" /></td>
+            <td><input type="text" class="text" name="pword" id="pword" /></td>
+            <td><input type="submit" class="create" alt="" value="" name="" border="0" /></td>
+          </tr>
+          <tr>
+          	<td align="left" class="already" colspan="3"><p>Already registered? <a href="#">Log in</a></p></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div style="width:980px; height:360px;">
+      <div style="float:left; width:490px; margin-right:30px; padding-top:20px">
+      	<p class="quote">&ldquo;Traditional fundraising and awareness methods just aren&rsquo;t enough. <span>Non-profits need the tools to keep their audiences engaged.</span>&rdquo;</p>
+        <p>Darby Anderson<br /><a href="#">The Bonnie J Addario Lung Cancer Foundation<a></p>
+      </div>    
+	  <div>
+      	<img src="assets/video.jpg" style="padding-top:20px" />
+      </div>
+    </div>
+    <div style="background:url(assets/foot.jpg) no-repeat; width:980px; height:171px;"></div>
+  </div>
+  
+<script type="text/javascript">
+function Clear() {
+	for (i=1;i<=6;i++) {
+		$("#blurb"+i).stop(true, true).fadeOut(100);
+		$("#icon"+i).css('background-position', '0 0');
+
+	}
+
+};
+function Show(who) {
+	Clear();
+	$("#blurb"+who).stop(true, true).fadeIn('fast');
+	$("#icon"+who).css('background-position', '0 -41px');
+};
+
+function pausecomp(millis) 
+{
+var date = new Date();
+var curDate = null;
+
+do { curDate = new Date(); } 
+while(curDate-date < millis);
+} 
+
+function Auto() {
+Show("1");
+setTimeout ("Show('2')", 2000);
+setTimeout ("Show('3')", 4000);
+setTimeout ("Show('4')", 6000);
+setTimeout ("Show('5')", 8000);
+setTimeout ("Show('6')", 10000);
+setTimeout ("Auto()", 12000);
+}
+
+function Auto() {
+	setInterval (function(){
+		var w = 1;
+		
+		Show
+	}, 1000)
+}
+
+</script>
+</body>
+</html>

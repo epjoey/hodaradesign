@@ -1,0 +1,92 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html, body { 
+background: #1b3554; 
+}
+body {
+	text-align:center;
+	background:url(assets/bg.jpg) repeat-x;
+	border:0;
+	padding:0;
+	margin:0;
+	max-height:970px;
+	color:#1b3554;
+	font-family: MuseoSans-500;
+}
+
+a {color:#2ca0cd}
+
+p, label {text-align:left;font-size:12px; line-height:1.6em}
+
+#mid {
+	background:url(assets/topbg.jpg) no-repeat; 
+	width:980px; height:385px; 
+	position:relative
+}
+
+#mid>div{position:absolute; font-size:12px; line-height:1.2em}
+#mid>div p{line-height:1.5em}
+
+#icon1 {width:42px; height:41px; top:238px; left:84px; background:url(assets/mega.png) no-repeat}
+#icon1:hover {background-position:0 -41px; cursor:pointer}
+#text1 {top:206px; left:62px;}
+#blurb1 {width:172px; height:150px; top:105px; left:-45px; background:url(assets/mega-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon2 {width:43px; height:41px; top:175px; left:217px; background:url(assets/bubble.png) no-repeat}
+#icon2:hover {background-position:0 -41px; cursor:pointer}
+#text2 {top:141px; left:187px;}
+#blurb2 {width:235px; height:130px; top:66px; left:45px; background:url(assets/bubble-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon3 {width:41px; height:41px; top:130px; left:377px; background:url(assets/pig.png) no-repeat}
+#icon3:hover {background-position:0 -41px; cursor:pointer}
+#text3 {top:110px; left:363px;}
+#blurb3 {width:221px; height:89px; top:55px; left:280px; background:url(assets/pig-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon4 {width:45px; height:41px; top:129px; left:556px; background:url(assets/contacts.png) no-repeat}
+#icon4:hover {background-position:0 -41px; cursor:pointer}
+#text4 {top:97px; left:549px;}
+#blurb4 {width:188px; height:88px; top:60px; left:465px; background:url(assets/contacts-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon5 {width:48px; height:41px; top:171px; left:704px; background:url(assets/cal.png) no-repeat}
+#icon5:hover {background-position:0 -41px; cursor:pointer}
+#text5 {top:137px; left:688px;}
+#blurb5 {width:267px; height:94px; top:93px; left:672px; background:url(assets/cal-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+#icon6 {width:40px; height:41px; top:240px; left:838px; background:url(assets/list.png) no-repeat}
+#icon6:hover {background-position:0 -41px; cursor:pointer}
+#text6 {top:208px; left:827px;}
+#blurb6 {width:138px; height:88px; top:161px; left:818px; background:url(assets/list-blurb.png) no-repeat; padding:5px 20px; display:none}
+
+table {margin:0 auto;} 
+
+form {padding-top:224px}
+
+
+input.text {
+	margin-right:1.6em;
+	height:25px;
+	width:144px;
+	border:solid 1px #ccc;
+	 -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+	behavior: url(border-radius.htc); 
+}
+
+input.create {
+	background: url(assets/submit.png) no-repeat; 
+    height: 25px; 
+    width: 129px;
+	border:0;
+	cursor:pointer;
+}
+
+input.create:hover {background-position:0 -25px; }
+
+p.quote {font-size:22px; line-height:1.5em; margin-bottom:0; padding-bottom:0}
+
+p.quote span {font-family: MuseoSans-500Italic;}
+
+#mid span {text-transform:uppercase}
