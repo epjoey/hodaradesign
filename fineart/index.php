@@ -39,7 +39,7 @@
 									<p>I enjoy sketching, painting and printmaking. My subject matter includes primarily portraiture and surf art.</p>
 								<p class='small'>&larr; click on those thumbnails to view work</p>";
 									}
-								elseif (isset($_GET['ob'])){
+								elseif (isset($_GET['noriega'])){
 			echo "<h2>Noriega Tree</h2><p></p><img src=images/noriega.jpg /><br/><p class='small'>Tools used: Linoleum cut on rice paper</p>";									}			
 								elseif (isset($_GET['ob'])){
 			echo "<h2>The Golden Gate</h2><p></p><img src=images/ob.jpg /><br/><p class='small'>Tools used: Linoleum cut on rice paper</p>";									}			
