@@ -3,6 +3,7 @@
    <div id="sec-head5"><a href="/fineart"><img src="../port/fine1.gif"></a></div>
 
 <div id="thumbs31">
+<a href="?noriega"><img src="thumbs/x-noriega.jpg" border="0"></a><br/><br/> 
 <a href="?ob"><img src="thumbs/x-ob.jpg" border="0"></a><br/><br/> 
 <a href="?backside"><img src="thumbs/x-backside.jpg" border="0"></a><br/><br/> 
 <a href="?bannerprint"><img src="thumbs/x-bannerprint.jpg" border="0"></a><br/><br/> 
@@ -38,6 +39,8 @@
 									<p>I enjoy sketching, painting and printmaking. My subject matter includes primarily portraiture and surf art.</p>
 								<p class='small'>&larr; click on those thumbnails to view work</p>";
 									}
+								elseif (isset($_GET['ob'])){
+			echo "<h2>Noriega Tree</h2><p></p><img src=images/noriega.jpg /><br/><p class='small'>Tools used: Linoleum cut on rice paper</p>";									}			
 								elseif (isset($_GET['ob'])){
 			echo "<h2>The Golden Gate</h2><p></p><img src=images/ob.jpg /><br/><p class='small'>Tools used: Linoleum cut on rice paper</p>";									}			
 								elseif (isset($_GET['backset'])){

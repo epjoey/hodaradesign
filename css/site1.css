@@ -57,7 +57,7 @@ a img {border: none; }
 	height:182px;
 }
 #tophead {width:940px; height:138px; background:url(../graphics/header.jpg) no-repeat;
-		font: 11px/15px 'BonvenoCFLight', Arial, sans-serif;letter-spacing: 1; 
+		font-size: 11px;letter-spacing: 1; 
 }
 #tophead-notmac {width:940px; height:138px; background:url(../graphics/header.jpg) no-repeat;
 		font: 11px/15px tahoma, sans-serif;letter-spacing: 1; font-weight:100 
@@ -72,7 +72,7 @@ a img {border: none; }
 
 a#lasttop {width:64px;float:right;padding-right:4px;}
 a#sectop {width:54px; float:left}
-a#firsttop {width:74px;padding-left:2px; float:left}
+a#firsttop {width:74px;float:left}
 
 
 
