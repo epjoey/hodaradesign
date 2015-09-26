@@ -14,7 +14,7 @@
 <div id="copy">
 <div class="space"></div>
 <p>&copy;HODARA DESIGN 2011
-<a href="/" class="copy">Home</a><a href="http://www.freewaycreative.com" class="copy">Blog</a>
+<a href="/" class="copy">Home</a>
 
 
 
