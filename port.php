@@ -21,6 +21,7 @@
 
 	<div id="portbuttons">
 
+	<img src="port/welcome.gif" id="welcome-img">
 
     <div id="port1"><a href="identities">
 		<img src="port/vis1.gif" class="roll6" />
