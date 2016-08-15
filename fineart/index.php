@@ -42,7 +42,7 @@
 			<p class='small'>&larr; click on those thumbnails to view work</p>";
 		}
 								elseif (isset($_GET['mavs'])){
-			echo "<h2>Mavs</h2><p></p><img src='http://i.imgur.com/EAFKqDul.jpg' /><br/><p class='small'>Linocut</p>";									}			
+			echo "<h2>Mavs</h2><p></p><img src='http://i.imgur.com/EAFKqDul.jpg' width='500' /><br/><p class='small'>Linocut</p>";									}			
 
 								elseif (isset($_GET['swirly'])){
 			echo "<h2>Sunset Ghost</h2><p></p><img src=images/swirlysunset.jpg /><br/><p class='small'>Tools used: Linoleum cut on rice paper</p>";									}			
