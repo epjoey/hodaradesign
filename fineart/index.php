@@ -3,7 +3,7 @@
    <div id="sec-head5"><a href="/fineart"><img src="../port/fine1.gif"></a></div>
 
 <div id="thumbs31">
-<a href="?mavs"><img src="thumbs/x-mavs.jpg" border="0"></a><br/><br/> 
+<a href="?mavs"><img src="http://i.imgur.com/EAFKqDus.jpg" width="50" height="50" border="0"></a><br/><br/> 
 <a href="?swirly"><img src="thumbs/x-swirlysunset.jpg" border="0"></a><br/><br/> 
 <a href="?noriega"><img src="thumbs/x-noriega.jpg" border="0"></a><br/><br/> 
 <a href="?ob"><img src="thumbs/x-ob.jpg" border="0"></a><br/><br/> 
@@ -42,7 +42,7 @@
 			<p class='small'>&larr; click on those thumbnails to view work</p>";
 		}
 								elseif (isset($_GET['mavs'])){
-			echo "<h2>Mavs</h2><p></p><img src=images/mavs.jpg /><br/><p class='small'>Linocut</p>";									}			
+			echo "<h2>Mavs</h2><p></p><img src='http://i.imgur.com/EAFKqDul.jpg' /><br/><p class='small'>Linocut</p>";									}			
 
 								elseif (isset($_GET['swirly'])){
 			echo "<h2>Sunset Ghost</h2><p></p><img src=images/swirlysunset.jpg /><br/><p class='small'>Tools used: Linoleum cut on rice paper</p>";									}			
