@@ -2,7 +2,7 @@
 
 <div id="ac">
 
-<img src="../jbay.jpg">
+<img src="../grad.jpg">
 <br />
 <p><i>Name:</i> Joseph Hodara &nbsp <i>From:</i> Upcountry, Maui &nbsp  <i>Now:</i> San Francisco</p>
 <p>
