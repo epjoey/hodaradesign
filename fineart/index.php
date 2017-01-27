@@ -20,6 +20,7 @@
 <a href="?undivided"><img src="thumbs/x-undivided.jpg" border="0"></a><br/><br/>  
 </div>
 <div id="thumbs52">
+<a href="?aloha"><img src="//i.imgur.com/quk3A78.png" width="50" height="50" border="0"></a><br/><br/>
 <a href="?la"><img src="thumbs/x-la.jpg" border="0"></a><br/><br/> 
 <a href="?xp"><img src="thumbs/x-xp.jpg" border="0"></a><br/><br/> 
 <a href="?lighthouse"><img src="thumbs/x-lighthouse.jpg" border="0"></a><br/><br/> 
@@ -41,6 +42,8 @@
 			<p>I enjoy sketching, painting and printmaking. My subject matter includes primarily portraiture and surf art.</p>
 			<p class='small'>&larr; click on those thumbnails to view work</p>";
 		}
+								elseif (isset($_GET['aloha'])){
+			echo "<h2>Aloha Ka Pu'uwai</h2><p></p><img src='//i.imgur.com/sP2dmcM.jpg' width='500' /><br/><p class='small'>Linocut</p>";									}
 								elseif (isset($_GET['mavs'])){
 			echo "<h2>Mavs</h2><p></p><img src='http://i.imgur.com/EAFKqDul.jpg' width='500' /><br/><p class='small'>Linocut</p>";									}			
 
