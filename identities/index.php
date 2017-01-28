@@ -3,12 +3,12 @@
 <div id="sec-head"><a href="/identities"><img alt=''  src="../port/vis1.gif"></a></div>
 
 <div id="thumbs1">
+<a href="?aiga"><img alt=''  src="thumbs/x-aiga.jpg" border="0"></a><br/><br/>
+<a href="?dp"><img alt=''  src="thumbs/x-dp2.jpg" border="0"></a><br/><br/>
 <a href="?imbiss"><img alt=''  src="thumbs/x-imbiss.jpg" border="0"></a><br/><br/> 
 <a href="?ccwc"><img alt=''  src="thumbs/x-ccwc.jpg" border="0"></a><br/><br/> 
-<a href="?aiga"><img alt=''  src="thumbs/x-aiga.jpg" border="0"></a><br/><br/> 
 <a href="?wyk"><img alt=''  src="thumbs/x-wyk.jpg" border="0"></a><br/><br/> 
 <a href="?lnl"><img alt=''  src="thumbs/x-lnl.jpg" border="0"></a><br/><br/> 
-<a href="?dp"><img alt=''  src="thumbs/x-dp2.jpg" border="0"></a><br/><br/> 
 <a href="?girleng"><img alt=''  src="thumbs/x-girleng.gif" border="0"></a><br/><br/> 
 <a href="?obama"><img alt=''  src="thumbs/x-obama.jpg" border="0"></a><br/><br/> 
 <a href="?rene"><img alt=''  src="thumbs/x-rene.jpg" border="0"></a><br/><br/> 
@@ -59,9 +59,9 @@
 								elseif (isset($_GET['rene'])){
 			echo "<h2>logo, flyers and business cards for rene&#8217;s dried fruit and nuts</h2><p>Rene&#8217;s was a small start up in Cape Town. I thought a handdrawn logo would portray the company&#8217;s authentic, homey characteristics.</p><img alt=''  src='images/rene1.jpg' /><p class='small'>Tools used: Illustrator, Photoshop, photography</p>";	}
 								elseif (isset($_GET['thdv'])){
-			echo "<a class=textweb>logo and website design for l.a. comedy troup</h2><p>Two Headed Dog asked me to create a logo and website which visually relates to their eccentric stage antics. I used cartoons by one of the actors, Mark, as a starting point and developed the rest of the design with a similar attitude.</p><img alt=''  src='images/thd1.jpg' /><img alt=''  src='images/thd2.jpg' /><img alt=''  src='images/thd3.jpg' /><p class='small'>Tools used: Illustrator, Photoshop, HTML, CSS, (Illustrations by Mark Fite)</p>";	}
+			echo "<h2>logo and website design for l.a. comedy troup</h2><p>Two Headed Dog asked me to create a logo and website which visually relates to their eccentric stage antics. I used cartoons by one of the actors, Mark, as a starting point and developed the rest of the design with a similar attitude.</p><img alt=''  src='images/thd1.jpg' /><img alt=''  src='images/thd2.jpg' /><img alt=''  src='images/thd3.jpg' /><p class='small'>Tools used: Illustrator, Photoshop, HTML, CSS, (Illustrations by Mark Fite)</p>";	}
 								elseif (isset($_GET['hdv'])){
-			echo "<a class=textweb>original logo and website design for hodara design</h2><p>I created my first portfolio site in Flash for aesthetic purposes. Having to edit the flash file everytime I needed to add content proved impractical so I swapped it for an HTML site. The flash site is still live at <a target=_blank href=http://www.hodaradesign.com/flashsite>www.hodaradesign.com/flashsite</a>.</p><img alt=''  src='images/hd1.jpg' /><img alt=''  src='images/hd2.jpg' /><img alt=''  src='images/hd3.jpg' /><p class='small'>Tools used: Illustrator, Photoshop, HTML, CSS, Flash</p>";	}
+			echo "<h2>original logo and website design for hodara design</h2><p>I created my first portfolio site in Flash for aesthetic purposes. Having to edit the flash file everytime I needed to add content proved impractical so I swapped it for an HTML site. The flash site is still live at <a target=_blank href=http://www.hodaradesign.com/flashsite>www.hodaradesign.com/flashsite</a>.</p><img alt=''  src='images/hd1.jpg' /><img alt=''  src='images/hd2.jpg' /><img alt=''  src='images/hd3.jpg' /><p class='small'>Tools used: Illustrator, Photoshop, HTML, CSS, Flash</p>";	}
 								elseif (isset($_GET['backdoor'])){
 			echo "<h2>logo for backdoor theatre company</h2><p>Backdoor Theatre Company was a group of actors that performed in a spooky garage.</p><img alt=''  src='images/backdoor.jpg' /><p class='small'>Tools used: Illustrator, Photoshop</p>";	}
 							
