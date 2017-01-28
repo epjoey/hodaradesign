@@ -3,7 +3,6 @@
 <div id="sec-head"><a href="/identities"><img alt=''  src="../port/vis1.gif"></a></div>
 
 <div id="thumbs1">
-<a href="?beacon"><img alt=''  src="thumbs/x-beacon.jpg" border="0"></a><br/><br/> 
 <a href="?imbiss"><img alt=''  src="thumbs/x-imbiss.jpg" border="0"></a><br/><br/> 
 <a href="?ccwc"><img alt=''  src="thumbs/x-ccwc.jpg" border="0"></a><br/><br/> 
 <a href="?aiga"><img alt=''  src="thumbs/x-aiga.jpg" border="0"></a><br/><br/> 
