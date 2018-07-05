@@ -3,7 +3,7 @@
    <div id="sec-head5"><a href="/fineart"><img src="../port/fine1.gif"></a></div>
 
 <div id="thumbs31">
-<a href="?kualeho"><img src="//i.imgur.com/chN3Huv.png" width="50" border="0"></a><br/><br/>
+<a href="?kualeho"><img src="//i.imgur.com/chN3Huv.png?3" width="50" border="0"></a><br/><br/>
 <a href="?mavs"><img src="http://i.imgur.com/EAFKqDus.jpg" width="50" height="50" border="0"></a><br/><br/>
 <a href="?swirly"><img src="thumbs/x-swirlysunset.jpg" border="0"></a><br/><br/>
 <a href="?noriega"><img src="thumbs/x-noriega.jpg" border="0"></a><br/><br/>
@@ -44,7 +44,7 @@
 			<p class='small'>&larr; click on those thumbnails to view work</p>";
 		}
 								elseif (isset($_GET['kualeho'])){
-			echo "<h2>Kualeho Carrying Sandalwood</h2><p></p><img src='//i.imgur.com/rkopfkV.png' width='500' /><br/><p class='small'>Woodcut, colored pencil</p>";									}
+			echo "<h2>Kualeho Carrying Sandalwood</h2><p></p><img src='//i.imgur.com/rkopfkV.png' /><br/><p class='small'>Woodcut, colored pencil</p>";									}
 								elseif (isset($_GET['aloha'])){
 			echo "<h2>Aloha Ka Pu'uwai</h2><p></p><img src='//i.imgur.com/sP2dmcM.jpg' width='500' /><br/><p class='small'>Linocut</p>";									}
 								elseif (isset($_GET['mavs'])){
