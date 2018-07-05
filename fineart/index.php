@@ -43,7 +43,7 @@
 			<p>I enjoy sketching, painting and printmaking. My subject matter includes primarily portraiture and surf art.</p>
 			<p class='small'>&larr; click on those thumbnails to view work</p>";
 		}
-								elseif (isset($_GET['aloha'])){
+								elseif (isset($_GET['kualeho'])){
 			echo "<h2>Kualeho Carrying Sandalwood</h2><p></p><img src='//i.imgur.com/rkopfkV.png' width='500' /><br/><p class='small'>Linocut</p>";									}
 								elseif (isset($_GET['aloha'])){
 			echo "<h2>Aloha Ka Pu'uwai</h2><p></p><img src='//i.imgur.com/sP2dmcM.jpg' width='500' /><br/><p class='small'>Linocut</p>";									}
