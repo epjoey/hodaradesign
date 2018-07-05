@@ -98,7 +98,8 @@ a#firsttop {width:74px;float:left}
 	float: left;
 	width: 940px;
 	font-family: Helvetica Neue, tahoma; /* change when you find it! */
-	}
+	line-height: 1.4;
+}
 	
  #content-notmac {
 	vertical-align: top;
@@ -127,7 +128,7 @@ a#firsttop {width:74px;float:left}
 #port5 img {top:118px}
 
 #ac {
-width: 490px;
+width: 510px;
 border-left: 1px solid #CCC;
 padding-left: 20px;
 paddint-top:20px;
