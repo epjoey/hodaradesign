@@ -13,7 +13,7 @@ body {
 	border:0;
 	margin: 0;
 	width: 100%;
-	font-family:Tahoma;
+	font-family:Helvetica Neue, Tahoma;
 	text-align: center;
 
 }
@@ -97,7 +97,7 @@ a#firsttop {width:74px;float:left}
 	background-color: #FFF;
 	float: left;
 	width: 940px;
-	font-family: tahoma; /* change when you find it! */
+	font-family: Helvetica Neue, tahoma; /* change when you find it! */
 	}
 	
  #content-notmac {
