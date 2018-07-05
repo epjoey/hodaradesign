@@ -57,10 +57,10 @@ a img {border: none; }
 	height:182px;
 }
 #tophead {width:940px; height:138px; background:url(../graphics/header.jpg) no-repeat;
-		font-size: 11px;letter-spacing: 1; 
+		font-size: 12px;letter-spacing: 1; font-weight: medium;
 }
 #tophead-notmac {width:940px; height:138px; background:url(../graphics/header.jpg) no-repeat;
-		font: 11px/15px tahoma, sans-serif;letter-spacing: 1; font-weight:100 
+		font: 12px/15px tahoma, sans-serif;letter-spacing: 1; font-weight:100 
 }
 #tophead a:hover {text-decoration:none; color:#bc863c }
 
