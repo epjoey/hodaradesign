@@ -45,116 +45,116 @@
 
     <div id="wrap">
 
-    <div id="left-fade"><img alt="" src="<?php $base ?>/graphics/left.png" height="416" width="30" border="0">
-        <?php
-        if($level == 'top') { ?>
-        <img alt="" src="<?php $base ?>/graphics/left-a.png" height="300" width="30">
-        <?php } else { ?>
-        <img alt="" src="<?php $base ?>/graphics/leftb.png" height="600" width="30">
-        <?php } ?>
-    </div>
-
-    <div id="right-fade"><img alt="" src="<?php $base ?>/graphics/right.png" height="416" width="30">
-        <?php
-        if($level == 'top') { ?>
-        <img alt="" src="<?php $base ?>/graphics/right-a.png" height="300" width="30">
-        <?php } else { ?>
-        <img alt="" src="<?php $base ?>/graphics/rightb.png" height="600" width="30">
-        <?php } ?>
-    </div>
-
-
-
-    <div id="header">
-        <div id="tophead">
-            <div id="topnav">
-                <a <?php if($section == 'port') echo 'class="on"' ?> id="firsttop" href="/">portfolio</a>
-                <a <?php if($section == 'about') echo 'class="on"' ?> id="sectop" href="/about">about</a>
-                <a <?php if($section == 'contact') echo 'class="on"' ?> id="lasttop" href="/contact">contact</a>
-            </div>
-
-            <div id="email">
-                <a href="mailto:jhodara@gmail.com" title="You sure you want to open your e-mail program?">jhodara@gmail.com</a>
-            </div>
+        <div id="left-fade"><img alt="" src="<?php $base ?>/graphics/left.png" height="416" width="30" border="0">
+            <?php
+            if($level == 'top') { ?>
+            <img alt="" src="<?php $base ?>/graphics/left-a.png" height="300" width="30">
+            <?php } else { ?>
+            <img alt="" src="<?php $base ?>/graphics/leftb.png" height="600" width="30">
+            <?php } ?>
         </div>
 
-        <div id="nav">
-
-            <div id="nleft"><img alt="" src="<?php $base ?>/graphics/row5.1.jpg" width="121"></div>
-
-            <div id="n1"><a href="/identities">
-            <?php if ($self != '/identities/index.php') { ?>
-            <img alt="" class="roll1" src="<?php $base ?>/graphics/row5.2-vis1.jpg" width="126" />
+        <div id="right-fade"><img alt="" src="<?php $base ?>/graphics/right.png" height="416" width="30">
+            <?php
+            if($level == 'top') { ?>
+            <img alt="" src="<?php $base ?>/graphics/right-a.png" height="300" width="30">
+            <?php } else { ?>
+            <img alt="" src="<?php $base ?>/graphics/rightb.png" height="600" width="30">
             <?php } ?>
-            <img alt="" src="<?php $base ?>/graphics/row5.2-vis2.jpg" />
-            </a></div>
+        </div>
 
-            <div id="n2"><a href="/packaging">
-            <?php if ($self != '/packaging/index.php') { ?>
-            <img alt="" class="roll2" src="<?php $base ?>/graphics/row5.3-pack1.jpg"  />
-            <?php } ?>
-            <img alt="" src="<?php $base ?>/graphics/row5.3-pack2.jpg" /></a></div>
 
-            <div id="n3"><a href="/posters">
-            <?php if ($self != '/posters/index.php') { ?>
-            <img alt="" class="roll3" src="<?php $base ?>/graphics/row5.4-pos1.jpg" />
-            <?php } ?>
-            <img alt="" src="<?php $base ?>/graphics/row5.4-pos2.jpg" /></a></div>
 
-            <div id="n4"><a href="/web">
-            <?php if ($self != '/web/index.php') { ?>
-            <img alt="" class="roll4" src="<?php $base ?>/graphics/row5.5-web1.jpg" />
-            <?php } ?>
-            <img alt="" src="<?php $base ?>/graphics/row5.5-web2.jpg" /></a></div>
+        <div id="header">
+            <div id="tophead">
+                <div id="topnav">
+                    <a <?php if($section == 'port') echo 'class="on"' ?> id="firsttop" href="/">portfolio</a>
+                    <a <?php if($section == 'about') echo 'class="on"' ?> id="sectop" href="/about">about</a>
+                    <a <?php if($section == 'contact') echo 'class="on"' ?> id="lasttop" href="/contact">contact</a>
+                </div>
 
-            <div id="n5"><a href="/fineart">
-            <?php if ($self != '/fineart/index.php') { ?>
-            <img alt="" class="roll5" src="<?php $base ?>/graphics/row5.6-fine1.jpg" />
-            <?php } ?>
-            <img alt="" src="<?php $base ?>/graphics/row5.6-fine2.jpg" /></a></div>
-
-            <div id="nright"><img alt="" src="<?php $base ?>/graphics/row5.7.jpg" /></div>
-
+                <div id="email">
+                    <a href="mailto:jhodara@gmail.com" title="You sure you want to open your e-mail program?">jhodara@gmail.com</a>
+                </div>
             </div>
 
-        <div id="home-link"><a href="<?php $base ?>/"><img alt="" src="<?php $base ?>/graphics/blank.gif" class="home-link" /></a></div>
-    </div>
-    
-    <div id="content">
-    
-        <script type="text/javascript">
-            $(".roll1, .roll2, .roll3, .roll4, .roll5 ").hover(
-                function () {
-                    $(this).stop().animate({"opacity": "0"}, 250);
-                },
-                function () {
-                    $(this).stop().animate({"opacity": "1"}, 250);
-                }
-            );
-        </script>
+            <div id="nav">
 
-        <?php if($uri == '/') { ?>
+                <div id="nleft"><img alt="" src="<?php $base ?>/graphics/row5.1.jpg" width="121"></div>
 
+                <div id="n1"><a href="/identities">
+                <?php if ($self != '/identities/index.php') { ?>
+                <img alt="" class="roll1" src="<?php $base ?>/graphics/row5.2-vis1.jpg" width="126" />
+                <?php } ?>
+                <img alt="" src="<?php $base ?>/graphics/row5.2-vis2.jpg" />
+                </a></div>
+
+                <div id="n2"><a href="/packaging">
+                <?php if ($self != '/packaging/index.php') { ?>
+                <img alt="" class="roll2" src="<?php $base ?>/graphics/row5.3-pack1.jpg"  />
+                <?php } ?>
+                <img alt="" src="<?php $base ?>/graphics/row5.3-pack2.jpg" /></a></div>
+
+                <div id="n3"><a href="/posters">
+                <?php if ($self != '/posters/index.php') { ?>
+                <img alt="" class="roll3" src="<?php $base ?>/graphics/row5.4-pos1.jpg" />
+                <?php } ?>
+                <img alt="" src="<?php $base ?>/graphics/row5.4-pos2.jpg" /></a></div>
+
+                <div id="n4"><a href="/web">
+                <?php if ($self != '/web/index.php') { ?>
+                <img alt="" class="roll4" src="<?php $base ?>/graphics/row5.5-web1.jpg" />
+                <?php } ?>
+                <img alt="" src="<?php $base ?>/graphics/row5.5-web2.jpg" /></a></div>
+
+                <div id="n5"><a href="/fineart">
+                <?php if ($self != '/fineart/index.php') { ?>
+                <img alt="" class="roll5" src="<?php $base ?>/graphics/row5.6-fine1.jpg" />
+                <?php } ?>
+                <img alt="" src="<?php $base ?>/graphics/row5.6-fine2.jpg" /></a></div>
+
+                <div id="nright"><img alt="" src="<?php $base ?>/graphics/row5.7.jpg" /></div>
+
+                </div>
+
+            <div id="home-link"><a href="<?php $base ?>/"><img alt="" src="<?php $base ?>/graphics/blank.gif" class="home-link" /></a></div>
+        </div>
+        
+        <div id="content">
+        
             <script type="text/javascript">
-                $(window).load(function () {
-                        var iCounter = 1;
-                        var interValKey = null;
-                        setTimeout (function(){
-                            interValKey = setInterval(function(){
-                                pulse(iCounter);
-                                iCounter++;
-                                if(iCounter == 6){
-                                clearInterval(interValKey);
-                                }
-                            }, 200);
-                        }, 300);
-                });
-
-                function pulse(n) {
-                    $(".roll"+n).animate({"opacity": "0"}, 550);
-                    setTimeout (function (){
-                        $(".roll"+n).animate({"opacity": "1"}, 350);
-                    },800)
-                };
+                $(".roll1, .roll2, .roll3, .roll4, .roll5 ").hover(
+                    function () {
+                        $(this).stop().animate({"opacity": "0"}, 250);
+                    },
+                    function () {
+                        $(this).stop().animate({"opacity": "1"}, 250);
+                    }
+                );
             </script>
-        <?php } ?>
+
+            <?php if($uri == '/') { ?>
+
+                <script type="text/javascript">
+                    $(window).load(function () {
+                            var iCounter = 1;
+                            var interValKey = null;
+                            setTimeout (function(){
+                                interValKey = setInterval(function(){
+                                    pulse(iCounter);
+                                    iCounter++;
+                                    if(iCounter == 6){
+                                    clearInterval(interValKey);
+                                    }
+                                }, 200);
+                            }, 300);
+                    });
+
+                    function pulse(n) {
+                        $(".roll"+n).animate({"opacity": "0"}, 550);
+                        setTimeout (function (){
+                            $(".roll"+n).animate({"opacity": "1"}, 350);
+                        },800)
+                    };
+                </script>
+            <?php } ?>
