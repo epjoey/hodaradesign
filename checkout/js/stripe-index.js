@@ -11,6 +11,8 @@ function registerElements(elements, exampleName) {
   var error = form.querySelector('.error');
   var errorMessage = error.querySelector('.message');
   var success = example.querySelector('.success');
+  var amount = 2500;
+  form.querySelector('#payment-amount').innerText = '$' + String(amount / 100);
 
   function enableInputs() {
     Array.prototype.forEach.call(
@@ -49,15 +51,27 @@ function registerElements(elements, exampleName) {
     var form = document.getElementById('payment-form');
   
     // Submit the form
-    var name = form.querySelector('#' + exampleName + '-name');
+    var shippingName = form.querySelector('#' + exampleName + '-shipping-name');
+    var shippingLine1 = form.querySelector('#' + exampleName + '-shipping-line1');
+    var shippingCity = form.querySelector('#' + exampleName + '-shipping-city');
+    var shippingState = form.querySelector('#' + exampleName + '-shipping-state');
+    var shippingPostalCode = form.querySelector('#' + exampleName + '-shipping-postal-code');
+    var shippingCountry = form.querySelector('#' + exampleName + '-shipping-country');
     var email = form.querySelector('#' + exampleName + '-email');
     var phone = form.querySelector('#' + exampleName + '-phone');
+    debugger;
     var data = {
-      name: name ? name.value : undefined,
+      stripeToken: token.id,
+      shippingName: shippingName ? shippingName.value : undefined,
+      shippingLine1: shippingLine1 ? shippingLine1.value : undefined,
+      shippingCity: shippingCity ? shippingCity.value : undefined,
+      shippingState: shippingState ? shippingState.value : undefined,
+      shippingPostalCode: shippingPostalCode ? shippingPostalCode.value : undefined,
+      shippingCountry: shippingCountry ? shippingCountry.value : undefined,
       email: email ? email.value : undefined,
       phone: phone ? phone.value : undefined,
-      stripeToken: token.id,
-      amount: '2500'
+      amount: amount,
+      description: 'Some badass art',
     };
 
     $.ajax({
@@ -136,16 +150,10 @@ function registerElements(elements, exampleName) {
     disableInputs();
 
     // Gather additional customer data we may have collected in our form.
-    var name = form.querySelector('#' + exampleName + '-name');
-    var address1 = form.querySelector('#' + exampleName + '-address');
-    var city = form.querySelector('#' + exampleName + '-city');
-    var state = form.querySelector('#' + exampleName + '-state');
-    var zip = form.querySelector('#' + exampleName + '-zip');
+    var name = form.querySelector('#' + exampleName + '-card-name');
+    var zip = form.querySelector('#' + exampleName + '-card-zip');
     var additionalData = {
       name: name ? name.value : undefined,
-      address_line1: address1 ? address1.value : undefined,
-      address_city: city ? city.value : undefined,
-      address_state: state ? state.value : undefined,
       address_zip: zip ? zip.value : undefined,
     };
 
@@ -184,13 +192,34 @@ function registerElements(elements, exampleName) {
   });
 
 
+  // Autocomplete duplicate fields.
+  var shippingName = form.querySelector('#' + exampleName + '-shipping-name');
+  $(shippingName).change(function(){
+    var cardName = form.querySelector('#' + exampleName + '-card-name');
+    cardName.value = cardName.value || shippingName.value;
+  });
+
+  var shippingZip = form.querySelector('#' + exampleName + '-address-zip');
+  $(shippingZip).change(function(){
+    var cardZip = form.querySelector('#' + exampleName + '-card-zip');
+    cardZip.value = cardZip.value || shippingZip.value;
+  });
+
+  // Autocomplete country.
+  form.querySelector('#' + exampleName + '-shipping-country').value = 'US';
+
   window.pop = function(){
-    document.querySelector('form #example3-name').value = 'Tester';
+    document.querySelector('form #example3-shipping-name').value = 'Tester McTester';
+    document.querySelector('form #example3-shipping-line1').value = '1269 Pohuli way';
+    document.querySelector('form #example3-shipping-city').value = 'Maktown';
+    document.querySelector('form #example3-shipping-state').value = 'HI';
+    document.querySelector('form #example3-shipping-postal-code').value = '99999';
     document.querySelector('form #example3-email').value = 'jhodara@gmail.com';
     document.querySelector('form #example3-phone').value = '8082682882';
-    document.querySelector('form #example3-card-number').value = '4242424242424242';
-    document.querySelector('form #example3-card-expiry').value = '2/22';
-    document.querySelector('form #example3-card-cvc').value = '222';
-    document.querySelector('form #example3-zip').value = '222222';
+    document.querySelector('form #example3-card-name').value = 'Tester McTesterson';
+    // document.querySelector('form #example3-card-number iframe input').value = '4242424242424242';
+    // document.querySelector('form #example3-card-expiry').value = '2/22';
+    // document.querySelector('form #example3-card-cvc').value = '222';
+    document.querySelector('form #example3-card-zip').value = '222222';
   };  
 }

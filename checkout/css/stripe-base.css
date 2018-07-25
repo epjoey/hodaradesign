@@ -59,7 +59,7 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
   font-size: 62.5%;
-  font-family: Roboto, Open Sans, Segoe UI, sans-serif;
+  font-family: Helvetica Neue, Open Sans, Segoe UI, sans-serif;
   font-weight: 400;
   font-style: normal;
   -webkit-text-size-adjust: 100%;
@@ -68,6 +68,7 @@ body {
   text-rendering: optimizeLegibility;
   font-feature-settings: "pnum";
   font-variant-numeric: proportional-nums;
+  overflow-x: hidden;  
 }
 
 .globalContent {
@@ -263,10 +264,6 @@ body {
   }
 }
 
-body {
-  overflow-x: hidden;
-  background-color: #f6f9fc;
-}
 
 main {
   position: relative;
@@ -321,7 +318,7 @@ main > .container-lg {
   flex-wrap: wrap;
   position: relative;
   max-width: 750px;
-  padding: 110px 20px 110px;
+  padding: 0 16px 40px;
 }
 
 main > .container-lg .cell {
@@ -335,7 +332,6 @@ main > .container-lg .cell {
   -ms-flex: auto;
   flex: auto;
   min-width: 100%;
-  min-height: 500px;
   padding: 0 40px;
 }
 
@@ -356,6 +352,14 @@ main > .container-lg .cell.intro {
 
   .optionList {
     margin-left: 13px;
+  }
+
+  main > .container-lg {
+    padding: 80px 20px 110px;
+  }
+
+  main > .container-lg .cell {
+    min-height: 500px;
   }
 }
 
@@ -382,14 +386,14 @@ main > .container-lg .example {
   align-items: center;
   border-radius: 4px;
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-  padding: 80px 0px;
+  padding: 20px 0px;
   margin-left: -20px;
   margin-right: -20px;
 }
 
 @media (min-width: 670px) {
   main > .container-lg .example {
-    padding: 40px;
+    padding: 80px 0px;
   }
 }
 
@@ -563,7 +567,7 @@ main > .container-lg .example .success {
 
 @media (min-width: 670px) {
   main > .container-lg .example .success {
-    padding: 40px;
+    padding: 80px 0;
   }
 }
 
@@ -662,3 +666,22 @@ footer {
   cursor: default;
   color: #6772e5;
 }
+
+.header {
+  display: block;
+  width: 100%;
+  padding: 20px 0
+}
+.stripe {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.4;
+  margin-top: 52px;
+  display: block;
+  width: 100%;  
+}
+
+.stripe img {
+  vertical-align: middle;
+}
+
