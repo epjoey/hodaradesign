@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 
-#sliderwrap {position:relative;margin:0 auto; width:697px; height:240px; overflow:hidden; background:url(images/loading.gif) no-repeat 50% 50%; cursor: hand; cursor: pointer;}
+#sliderwrap {position:relative;margin:0 auto; width:697px; height:240px; overflow:hidden; background:url(../images/loading.gif) no-repeat 50% 50%; cursor: hand; cursor: pointer;}
 
 	
 
