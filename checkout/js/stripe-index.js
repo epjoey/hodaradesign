@@ -49,7 +49,7 @@ function registerElements(elements, exampleName) {
 
   function stripeTokenHandler(token) {
     var form = document.getElementById('payment-form');
-  
+
     // Submit the form
     var shippingName = form.querySelector('#' + exampleName + '-shipping-name');
     var shippingLine1 = form.querySelector('#' + exampleName + '-shipping-line1');
@@ -59,7 +59,7 @@ function registerElements(elements, exampleName) {
     var shippingCountry = form.querySelector('#' + exampleName + '-shipping-country');
     var email = form.querySelector('#' + exampleName + '-email');
     var phone = form.querySelector('#' + exampleName + '-phone');
-    debugger;
+
     var data = {
       stripeToken: token.id,
       shippingName: shippingName ? shippingName.value : undefined,
@@ -91,8 +91,8 @@ function registerElements(elements, exampleName) {
             errorMessage.innerText = charge.failure_message;
           }
       }
-    });    
-  }  
+    });
+  }
 
   // Listen for errors from each Element, and show error messages in the UI.
   var savedErrors = {};
@@ -221,5 +221,5 @@ function registerElements(elements, exampleName) {
     // document.querySelector('form #example3-card-expiry').value = '2/22';
     // document.querySelector('form #example3-card-cvc').value = '222';
     document.querySelector('form #example3-card-zip').value = '222222';
-  };  
+  };
 }
