@@ -59,9 +59,7 @@ a img {border: none; }
 #tophead {width:940px; height:138px; background:url(../graphics/header.jpg) no-repeat;
 		font-size: 12px;letter-spacing: 1; font-weight: medium;
 }
-#tophead-notmac {width:940px; height:138px; background:url(../graphics/header.jpg) no-repeat;
-		font: 12px/15px tahoma, sans-serif;letter-spacing: 1; font-weight:100 
-}
+
 #tophead a:hover {text-decoration:none; color:#bc863c }
 
 #topnav {width: 200px; text-align:center; position:absolute; left:334px; top:40px;  color:#000  }
@@ -102,13 +100,6 @@ a#firsttop {width:74px;float:left}
 	font-size: 16px;
 }
 	
- #content-notmac {
-	vertical-align: top;
-	background-color: #FFF;
-	float: left;
-	width: 940px;
-	}
- 
  #portpage {
 	height: 504px;
 	width:697px;
