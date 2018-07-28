@@ -2,7 +2,7 @@
 
 <div id="ac">
 
-<img src="../jbay.jpg">
+<img src="../images/jbay.jpg">
 <br />
 <p>
 Joseph Hodara</p>

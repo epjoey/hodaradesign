@@ -31,12 +31,12 @@
         $self = $_SERVER['PHP_SELF'];
         $base_uri = $base . $uri;
 
-        if ($uri == '/' || $self == '/identities/index.php' || $self == '/packaging/index.php' || $self == '/posters/index.php' || $self == '/web/index.php' || $self == '/fineart/index.php') $section = 'port';
+        if ($uri == '/port/' || $self == '/identities/index.php' || $self == '/packaging/index.php' || $self == '/posters/index.php' || $self == '/web/index.php' || $self == '/fineart/index.php') $section = 'port';
         elseif($uri == '/about/') $section = 'about';
         elseif($uri == '/contact/') $section = 'contact';
         else $section = 'other';
 
-        if ($uri == '/about/' || $uri == '/contact/' || $uri == '/') $level = 'top';
+        if ($uri == '/about/' || $uri == '/contact/' || $uri == '/port/') $level = 'top';
         else $level = 'lower';
 
     ?>
@@ -66,18 +66,7 @@
 
 
         <div id="header">
-            <div id="tophead">
-                <div id="topnav">
-                    <a <?php if($section == 'port') echo 'class="on"' ?> id="firsttop" href="/">portfolio</a>
-                    <a <?php if($section == 'about') echo 'class="on"' ?> id="sectop" href="/about">about</a>
-                    <a <?php if($section == 'contact') echo 'class="on"' ?> id="lasttop" href="/contact">contact</a>
-                </div>
-
-                <div id="email">
-                    <a href="mailto:jhodara@gmail.com" title="You sure you want to open your e-mail program?">jhodara@gmail.com</a>
-                </div>
-            </div>
-
+            <?php include 'header-top.php' ?>
             <div id="nav">
 
                 <div id="nleft"><img alt="" src="<?php $base ?>/graphics/row5.1.jpg" width="121"></div>
@@ -132,29 +121,3 @@
                     }
                 );
             </script>
-
-            <?php if($uri == '/') { ?>
-
-                <script type="text/javascript">
-                    $(window).load(function () {
-                            var iCounter = 1;
-                            var interValKey = null;
-                            setTimeout (function(){
-                                interValKey = setInterval(function(){
-                                    pulse(iCounter);
-                                    iCounter++;
-                                    if(iCounter == 6){
-                                    clearInterval(interValKey);
-                                    }
-                                }, 200);
-                            }, 300);
-                    });
-
-                    function pulse(n) {
-                        $(".roll"+n).animate({"opacity": "0"}, 550);
-                        setTimeout (function (){
-                            $(".roll"+n).animate({"opacity": "1"}, 350);
-                        },800)
-                    };
-                </script>
-            <?php } ?>
