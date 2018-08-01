@@ -1,41 +1,26 @@
-<?php include 'store-header.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hodara Design</title>
+    <meta name="Description" content="HODARA DESIGN. Graphic and web deisgn by Joseph Hodara">
+    <meta name="Keywords" content="design, hodara, joey, joey hodara, joseph hodara, graphic design, web design, AIGA, golden league, dawn patrol ">
+    <link rel="stylesheet" type="text/css" media="all" href="<?php $base ?>/css/store.css" />
+    <link rel="icon" type="image/gif" href="<?php $base ?>/favicon.ico" />
+    <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <body>
+    <div id="store-container">
+      <div id="store-root"></div>
 
-<div id="root"></div>
+      <script type="application/javascript" src="<?php $base ?>/js/index.js"></script>
 
-<script type="text/babel">
-  // Obtain the root 
-  const rootElement = document.getElementById('root')
-  // Create a ES6 class component    
-  class ShoppingList extends React.Component { 
-  // Use the render function to return JSX component      
-  render() { 
-      return (
-      <div className="shopping-list">
-      <h1>Shopping List for {this.props.name}</h1>
-        <ul>
-          <li>Instagram</li>
-          <li>WhatsApp</li>
-          <li>Oculus</li>
-        </ul>
-      </div>
-    );
-    } 
-  }
-  // Create a function to wrap up your component
-  function App(){
-    return(
-    <div>
-      <ShoppingList name="@luispagarcia on Dev.to!"/>
+      <div id="store-left"><span></span></div>
+      <div id="store-right"><span></span></div>
     </div>
-    )
-  }
+  </body>
+</html>
 
-
-  // Use the ReactDOM.render to show your component on the browser
-  ReactDOM.render(
-    <App />,
-    rootElement
-  )
-</script>
-   
-<?php include 'footer.php'; ?>	

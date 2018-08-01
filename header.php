@@ -7,7 +7,7 @@
     <meta name="Keywords" content="design, hodara, joey, joey hodara, joseph hodara, graphic design, web design, AIGA, golden league, dawn patrol ">
     <link rel="stylesheet" type="text/css" media="all" href="<?php $base ?>/css/site1.css" />
     <link rel="stylesheet" href="<?php $base ?>/css/flade.css" type="text/css" media="screen" />
-    <link rel="icon" type="image/gif" href="<?php $base ?>/favicon.gif" />
+    <link rel="icon" type="image/gif" href="<?php $base ?>/favicon.ico" />
 
     <script type="text/javascript" src="<?php $base ?>/js/jquery-1.5.1.js"></script>
     <script type="text/javascript" src="<?php $base ?>/js/jquery.easing.js"></script>

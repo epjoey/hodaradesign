@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html {	height:100%; }
+
+body {
+	height:100%;
+	padding:0px;
+	background-color:#FFF;
+	border:0;
+	margin: 0;
+	width: 100%;
+	font-family:Helvetica Neue, Tahoma;
+}
+
+/* STORE */
+#store-container {
+	display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100%;
+}
+
+#store-left, #store-right {
+  flex-grow: 1;
+  background-repeat:repeat-x;
+  position: relative;
+  z-index: -1;
+}
+
+#store-left {
+  order: 0;
+  background-image:url(../graphics/bg.jpg);
+}
+
+#store-right {
+  order: 2;
+  background-image:url(../graphics/bg-flipped.jpg);
+  background-position-x: right;
+}
+
+#store-left span, #store-right span {
+  background-repeat: no-repeat;
+  width: 30px;
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+#store-left span {
+  background-image: url(../graphics/left.png);
+  right: 6px;
+}
+
+#store-right span {
+  background-image: url(../graphics/right.png);
+  left: 6px;
+}
+
+#store-root {
+  flex-grow: 12;
+  order: 1;
+  max-width: 1000px;
+  height: 100%;
+  box-shadow: 0 0 15px 10px #fff;
+}
+
