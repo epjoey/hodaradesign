@@ -1,6 +1,6 @@
    	<?php include '../header.php'; ?>
     
-   <div id="sec-head"><a href="/packaging"><img src="../port/pack1.gif"></a></div>
+   <div id="sec-head"><a href="/packaging"><img src="../art/pack1.gif"></a></div>
 
 <div id="thumbs21">
 <p>Projects led</p>

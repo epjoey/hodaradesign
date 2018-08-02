@@ -1,4 +1,4 @@
 <?php
-  header('Location: /port', true, 302);
+  header('Location: /art', true, 302);
   exit();
 ?>

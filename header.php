@@ -31,12 +31,12 @@
         $self = $_SERVER['PHP_SELF'];
         $base_uri = $base . $uri;
 
-        if ($uri == '/port/' || $self == '/identities/index.php' || $self == '/packaging/index.php' || $self == '/posters/index.php' || $self == '/web/index.php' || $self == '/fineart/index.php') $section = 'port';
+        if ($uri == '/art/' || $self == '/identities/index.php' || $self == '/packaging/index.php' || $self == '/posters/index.php' || $self == '/web/index.php' || $self == '/fineart/index.php') $section = 'art';
         elseif($uri == '/about/') $section = 'about';
         elseif($uri == '/contact/') $section = 'contact';
         else $section = 'other';
 
-        if ($uri == '/about/' || $uri == '/contact/' || $uri == '/port/') $level = 'top';
+        if ($uri == '/about/' || $uri == '/contact/' || $uri == '/art/') $level = 'top';
         else $level = 'lower';
 
     ?>
@@ -68,7 +68,7 @@
         <div id="header">
             <div id="tophead">
                 <div id="topnav">
-                    <a <?php if($section == 'port') echo 'class="on"' ?> id="firsttop" href="/port">home</a>
+                    <a <?php if($section == 'art') echo 'class="on"' ?> id="firsttop" href="/art">portfolio</a>
                     <a <?php if($section == 'about') echo 'class="on"' ?> id="sectop" href="/about">about</a>
                     <a <?php if($section == 'contact') echo 'class="on"' ?> id="lasttop" href="/contact">contact</a>
                 </div>

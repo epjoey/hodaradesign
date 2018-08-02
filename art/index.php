@@ -24,28 +24,28 @@
 
 	  <img src="welcome.gif" id="welcome-img">
 
-    <div id="port1"><a href="identities">
+    <div id="port1"><a href="/identities">
       <img src="vis1.gif" class="roll6" />
       <img src="vis2.gif" /></a>
     </div>
 
- 	  <div id="port2"><a href="packaging" >
+ 	  <div id="port2"><a href="/packaging" >
       <img src="pack1.gif" class="roll7" />
       <img src="pack2.gif" /></a>
     </div>
 
-	  <div id="port3"><a href="posters">
+	  <div id="port3"><a href="/posters">
       <img src="ppp1.gif" class="roll8" />
       <img src="ppp2.gif"  /></a>
 		</div>
 
-    <div id="port4"><a href="web">
+    <div id="port4"><a href="/web">
       <img src="web1.gif" class="roll9" />
       <img src="web2.gif"  /></a>
     </div>
 
 
-    <div id="port5"><a href="fineart" >
+    <div id="port5"><a href="/fineart" >
       <img src="fine1.gif" class="roll10" />
       <img src="fine2.gif" /></a>
     </div>
