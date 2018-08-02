@@ -14,32 +14,32 @@ body {
 }
 
 /* STORE */
-#store-container {
+.store-container {
 	display: flex;
   justify-content: center;
   align-items: stretch;
   height: 100%;
 }
 
-#store-left, #store-right {
+.store-left, .store-right {
   flex-grow: 1;
   background-repeat:repeat-x;
   position: relative;
   z-index: -1;
 }
 
-#store-left {
+.store-left {
   order: 0;
   background-image:url(../graphics/bg.jpg);
 }
 
-#store-right {
+.store-right {
   order: 2;
   background-image:url(../graphics/bg-flipped.jpg);
   background-position-x: right;
 }
 
-#store-left span, #store-right span {
+.store-left span, .store-right span {
   background-repeat: no-repeat;
   width: 30px;
   display: block;
@@ -48,17 +48,17 @@ body {
   height: 100%;
 }
 
-#store-left span {
+.store-left span {
   background-image: url(../graphics/left.png);
   right: 6px;
 }
 
-#store-right span {
+.store-right span {
   background-image: url(../graphics/right.png);
   left: 6px;
 }
 
-#store-root {
+.store-center {
   flex-grow: 12;
   order: 1;
   max-width: 1000px;

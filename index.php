@@ -10,13 +10,13 @@
     <link rel="icon" type="image/gif" href="<?php $base ?>/favicon.ico" />
   </head>
   <body>
-    <div id="store-container">
-      <div id="store-root"></div>
+    <div class="store-container">
+      <div class="store-center" id="store-root"></div>
 
       <script type="application/javascript" src="<?php $base ?>/dist/bundle.js"></script>
 
-      <div id="store-left"><span></span></div>
-      <div id="store-right"><span></span></div>
+      <div class="store-left"><span></span></div>
+      <div class="store-right"><span></span></div>
     </div>
   </body>
 </html>
