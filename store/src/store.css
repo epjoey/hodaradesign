@@ -1,0 +1,159 @@
+@charset "UTF-8";
+/* CSS Document */
+* {
+  box-sizing: border-box;
+}
+
+blockquote,
+body,
+button,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+p,
+pre,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+button,
+select {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {	height:100%; }
+
+body {
+	height:100%;
+	background-color:#FFF;
+	border:0;
+	width: 100%;
+	font-family:Helvetica Neue, Tahoma;
+}
+
+.store-container {
+	display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100%;
+}
+
+.store-left, .store-right {
+  flex-grow: 1;
+  background-repeat:repeat-x;
+  position: relative;
+  z-index: -1;
+}
+
+.store-left {
+  order: 0;
+  background-image:url(images/bg.jpg);
+}
+
+.store-right {
+  order: 2;
+  background-image:url(images/bg-flipped.jpg);
+  background-position-x: right;
+}
+
+.store-left span, .store-right span {
+  background-repeat: no-repeat;
+  width: 30px;
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.store-left span {
+  background-image: url(images/left.png);
+  right: 6px;
+}
+
+.store-right span {
+  background-image: url(images/right.png);
+  left: 6px;
+}
+
+.store-center {
+  flex-grow: 12;
+  order: 1;
+  max-width: 1000px;
+  height: 100%;
+  box-shadow: 0 0 15px 10px #fff;
+}
+
+.header {
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;  
+}
+
+.header .logo {
+  background-image: url(images/hdlogo.jpg);
+  display: inline-block;
+  width: 150px;
+  height: 74px;
+  opacity: .75;
+  background-size: 100%;
+}
+.header .logo:hover {
+  opacity: 1;
+}
+
+.checkout-link {
+  float: right;
+  font-size: 13px;
+}
+
+.store {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.store .items {
+  padding-right: 30px;
+  max-width: 160px;
+}
+.store .items li {
+  padding: 4px;
+  float: left;
+}
+
+.display-title {
+  padding-bottom: 12px;
+  font-weight: normal;
+}
+
+.display-image {
+  padding-bottom: 20px;
+}
+
+.display-description {
+  font-size: 13px;
+}

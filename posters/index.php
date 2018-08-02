@@ -25,7 +25,7 @@
 <div id="main3">
   <?PHP 
 if($_SERVER['QUERY_STRING']=='/index.php'  || $_SERVER['QUERY_STRING']=='/'  || $_SERVER['QUERY_STRING']==''){
-echo "<h2>Welcome to the poster and print publication section of my portfolio.</h2><p>This section hosts many promotional pieces, school projects, personal projects and advertisements. They range in actual size from letter size to 40x60 inches.</p>
+echo "<h2>Welcome to the poster and print publication section of my portfolio</h2><p>This section hosts many promotional pieces, school projects, personal projects and advertisements. They range in actual size from letter size to 40x60 inches.</p>
 								<p class='small'>&larr; click on those thumbnails to view work</p>";
 									}
 									                        		

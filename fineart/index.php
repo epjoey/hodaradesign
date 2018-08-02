@@ -39,7 +39,7 @@
 	<?php
 
 		if($_SERVER['QUERY_STRING']==''){
-			echo "<h2>Welcome to the fine art gallery of Hodara Design.</h2>
+			echo "<h2>Welcome to the fine art gallery of Hodara Design</h2>
 			<p>I enjoy sketching, painting and printmaking. My subject matter includes primarily portraiture and surf art.</p>
 			<p class='small'>&larr; click on those thumbnails to view work</p>";
 		}

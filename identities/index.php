@@ -23,7 +23,7 @@
 <?PHP 
                         		
                        		if($_SERVER['QUERY_STRING']=='/index.php'  || $_SERVER['QUERY_STRING']=='/'  || $_SERVER['QUERY_STRING']==''){
-									echo "<h2>Welcome to the visual identity gallery of Hodara Design.</h2><p> Here I display logos and branding designs that I have created. For many of these clients I went beyond design and applied their logos to a communication platform (the web, print material, clothing, etc). Deciding which platform to utilize is key to establishing an effective visual identity.</p><p>When starting a visual identity project I emphasize two main efforts:</p>
+									echo "<h2>Welcome to the visual identity gallery of Hodara Design</h2><p> Here I display logos and branding designs that I have created. For many of these clients I went beyond design and applied their logos to a communication platform (the web, print material, clothing, etc). Deciding which platform to utilize is key to establishing an effective visual identity.</p><p>When starting a visual identity project I emphasize two main efforts:</p>
                                 <ul><li><b>Communication</b> with the client in order to imitate to the nearest degree the vision in his/her mind.</li><li><b>Research</b> into the product, company, field of competition, chosen platform and tools to be used.</li></ul><p class=text1>When these efforts are complete, I design and produce the finished product.</p>
 								<p class='small'>&larr; click on those thumbnails to view work</p>";
 									}

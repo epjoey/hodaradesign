@@ -27,7 +27,7 @@
 	<?PHP 
                         		
                         		if($_SERVER['QUERY_STRING']=='/index.php'  || $_SERVER['QUERY_STRING']=='/'  || $_SERVER['QUERY_STRING']==''){
-									echo "<h2>Welcome to the packaging gallery of Hodara Design.</h2><p> I produced these pieces as an in-house package designer for a major software publisher.</p><p>A key element in package design is eye-catching graphics which is often what lures a possible customer towards a product. But the design must also be accurately representative of the products function.</p>
+									echo "<h2>Welcome to the packaging gallery of Hodara Design</h2><p> I produced these pieces as an in-house package designer for a major software publisher.</p><p>A key element in package design is eye-catching graphics which is often what lures a possible customer towards a product. But the design must also be accurately representative of the products function.</p>
 								<p class='small'>&larr; click on those thumbnails to view work</p>";
 									}
 								

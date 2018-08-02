@@ -4,59 +4,77 @@ import ReactDOM from 'react-dom';
 class Display extends React.Component {
   render() {
     if(!this.props.item){
-      return '';
+      return (<div className='display'></div>);
     }
     return (
-      <div>
-        <h2>{this.props.item.title}</h2>
-        <div>
+      <div className='display'>
+        <h4 className="display-title">{this.props.item.title}</h4>
+        <div className="display-image">
           <img src={this.props.item.images[0]} />
         </div>
-        <span>{this.props.item.text}</span>
+        <span className="display-description">{this.props.item.text}</span>
       </div>
     )
   }
 }
+
 class Store extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [{
+        slug: 'kualeho',
         title: 'Kualeho Carrying Sandalwood',
         text: 'Woodcut, colored pencil',
         thumb: '//i.imgur.com/chN3Huv.png?3',
         images: ['//i.imgur.com/rkopfkV.png', '//i.imgur.com/hAGLR84.png']
       },{
+        slug: 'mavs',
         title: 'Mavs',
         text: 'Linocut',
         thumb: '//i.imgur.com/EAFKqDus.jpg',
         images: ['//i.imgur.com/EAFKqDul.jpg']
       }],
-      displayedItem: null
+      item: null
     };
-  }
 
-  displayItem(item){
-    this.setState({displayedItem: item});
+    let itemsBySlug = {};
+    this.state.items.forEach(item => {
+      itemsBySlug[item.slug] = item;
+    })
+
+    const slug = window.location.search.slice(1);
+    if(slug){
+      this.state.item = itemsBySlug[slug];
+    } else {
+      this.state.item = this.state.items[0];
+    }
   }
 
   render() {
     const items = this.state.items.map(item => {
+      const url = '?' + item.slug;
       return (
         <li key={item.thumb}>
-          <button onClick={() => this.displayItem(item)}>
+          <a href={url}>
             <img src={item.thumb} width='50'/>
-          </button>
+          </a>
         </li>
       );
     });
 
     return (
-      <div className="store">
-        <div className="items">
-          <ul>{items}</ul>
+      <div>
+        <div className="header">
+          <a href="/store" className="logo"></a>
+          <a href="/checkout" className="checkout-link">Checkout</a>
         </div>
-        <Display item={this.state.displayedItem} />
+        <div className="store">
+          <div className="items">
+            <ul>{items}</ul>
+          </div>
+          <Display item={this.state.item} />
+        </div>
       </div>
     );
   }
@@ -66,6 +84,6 @@ class Store extends React.Component {
 // ========================================
 ReactDOM.render(
   <Store />,
-  document.getElementById('store-root')
+  document.getElementById('root')
 );
 

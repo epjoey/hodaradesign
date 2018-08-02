@@ -26,7 +26,7 @@
                         		<?PHP 
                         		
                         		if($_SERVER['QUERY_STRING']=='/index.php'  || $_SERVER['QUERY_STRING']=='/'  || $_SERVER['QUERY_STRING']==''){
-									echo "<h2>Welcome to the web and motion section of my portfolio.</h2><p>Here I display interactive or animated designs that I have created either as a freelance task or a team project. Currently I design and built websites using HTML, CSS, Javascript, and PHP. </p>
+									echo "<h2>Welcome to the web and motion section of my portfolio</h2><p>Here I display interactive or animated designs that I have created either as a freelance task or a team project. Currently I design and built websites using HTML, CSS, Javascript, and PHP. </p>
 								<p class='small'>&larr; click on those thumbnails to view work</p>";
 									}
 									                        		
