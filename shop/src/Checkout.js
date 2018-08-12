@@ -2,6 +2,7 @@
 import React from 'react';
 import cart from './cart';
 import pieces from './pieces';
+import Link from './Link';
 
 class CartItems extends React.Component {
   constructor(props) {
@@ -11,12 +12,11 @@ class CartItems extends React.Component {
     }
   }
 
-  removeItem(item) {
-    cart.removeItem(item);
+  removePiece(piece) {
+    piece.removeFromCart()
     this.setState({
       items: cart.items
     });
-
     this.props.onUpdate();
   }
 
@@ -24,14 +24,14 @@ class CartItems extends React.Component {
     const piece = pieces.findPiece(item.slug);
     return (
       <li key={item.slug} className="h-space b-space">
-        <a href={'/shop?' + item.slug} className="cart-item-image"><img width="70" src={piece.thumb} /></a>
+        <Link to={item.slug} className="cart-item-image"><img width="70" src={piece.thumb} /></Link>
         <span className="cart-item-title text t-space">{piece.title}</span>
         {/* <select className='cart-item-count'>
           <option>{item.count}</option>
         </select> */}
         <div className='right t-space'>
           <span className="text h-space">${cart.price(item, piece)/100}</span>
-          <button onClick={() => this.removeItem(item)}
+          <button onClick={() => this.removePiece(piece)}
             className='btn right'>Remove</button>
         </div>
       </li>
@@ -350,13 +350,9 @@ class Checkout extends React.Component {
   render() {
     return (
       <section className="checkout">
-        <div className="header">
-          <a className="logo" href="/shop"></a>
-        </div>
         <CartItems onUpdate={() => this.setState({cartTotal: cart.total()})}/>
         <div className="h-space b-space wide text-right">
           <span className="text b-space">Total: ${this.state.cartTotal/100}</span>
-          <a href="/shop" className="btn lm-space right">Keep Shopping</a>
         </div>        
         <div className="h-space b-space">
           <span className="text wide b-space">Enter <b>shipping</b> and <b>credit card</b> info and your purchase will be shipped within <b>two weeks</b>. Mahalo!</span>

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Checkout from './Checkout';
 import cart from './cart';
 import pieces from './pieces';
+import Link from './Link';
 
 class Display extends React.Component {
   render() {
@@ -34,18 +35,50 @@ class Display extends React.Component {
 }
 
 class Shop extends React.Component {
-  constructor(props) {
+  render() {
+    const thumbs = pieces.map(piece => {
+      return (
+        <li key={piece.slug}>
+          <Link to={piece.slug}>
+            <img src={piece.thumb} />
+          </Link>
+        </li>
+      );
+    });
+
+    const piece = this.props.slug ? pieces.find(piece => {
+      return piece.slug === this.props.slug;
+    }) : pieces[0];
+
+    return (
+      <div className="shop">
+        <Display piece={piece} />
+        <ul className="thumbs">{thumbs}</ul>
+      </div>
+    );
+  }
+}
+
+
+class Index extends React.Component {
+  constructor(props){
     super(props);
     this.state = {
-      piece: null,
+      slug: window.location.hash.slice(1),
       cartTotal: cart.total()
     };
 
-    var self = this;
+    let self = this;
+    history.onpushstate = function(state){
+      self.setState({slug: state.to});
+      window.scrollTo(0, 0);
+    };
+
     var pieceProto = {
       addToCart: function(){
         cart.addPiece(this);
-        window.location.href = '/shop?checkout';
+        self.setState({ cartTotal: cart.total() });
+        Link.to('checkout');
       },
       removeFromCart: function(){
         cart.removePiece(this);
@@ -58,54 +91,31 @@ class Shop extends React.Component {
     
     pieces.forEach(piece => {
       piece.__proto__ = pieceProto;
-    });
-
-    const slug = window.location.search.slice(1);
-    this.state.piece = slug ? pieces.find(piece => {
-      return piece.slug === slug;
-    }) : pieces[0];
+    });    
   }
 
   render() {
-    const thumbs = pieces.map(piece => {
-      const url = '?' + piece.slug;
-      return (
-        <li key={piece.slug}>
-          <a href={url}>
-            <img src={piece.thumb} />
-          </a>
-        </li>
-      );
-    });
-
     return (
-      <div className="shop">
-        <div className="header l-space">
-          <a href="/shop" className="logo"></a>
-          { this.state.cartTotal ? (
-            <a href="?checkout"
-              className="btn btn-lg btn-checkout"
-            >Checkout</a>
-          ) : (
-            <span className="btn btn-lg btn-checkout disabled">Checkout</span>
-          )}
+      <div className={"page page-" + this.state.slug}>
+        <div className="header">
+          <Link to="" className="logo"></Link>
+          { this.state.slug !== 'checkout' && !!this.state.cartTotal && (
+            <Link to='checkout'
+              className="btn btn-lg btn-header-right"
+            >Checkout</Link>) }
+          { this.state.slug === 'checkout' && (
+            <Link to=''
+              className="btn btn-lg btn-header-right"
+            >Keep shopping</Link>) }
         </div>
-        <Display piece={this.state.piece} />
-        <ul className="thumbs">{thumbs}</ul>
+        { this.state.slug === 'checkout' && (<Checkout />) }
+        { this.state.slug !== 'checkout' &&
+          (
+            <Shop slug={this.state.slug} />
+          )
+        }
       </div>
     );
-  }
-}
-
-class Index extends React.Component {
-  render() {
-    const slug = window.location.search.slice(1);
-    if(slug === 'checkout'){
-      return (<Checkout />);
-    }
-    else {
-      return (<Shop />);
-    }
   }
 }
 
@@ -116,3 +126,14 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+(function(history){
+  var pushState = history.pushState;
+  history.pushState = function() {
+    if (typeof history.onpushstate == "function") {
+      history.onpushstate.apply(history, arguments);
+    }
+    // ... whatever else you want to do
+    // maybe call onhashchange e.handler
+    return pushState.apply(history, arguments);
+  }
+})(window.history);

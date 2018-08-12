@@ -133,7 +133,7 @@ body {
   color: white;
 }
 
-.btn-checkout {
+.btn-header-right {
   position: absolute;
   top: 37px;
   right: 20px;
@@ -148,6 +148,7 @@ body {
   padding-top: 20px;
   padding-bottom: 50px; 
   position: relative; 
+  padding-left: 32px;
 }
 
 .header .logo {
