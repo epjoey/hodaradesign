@@ -1,17 +1,17 @@
 const pieces = [{
-  slug: 'kualeho',
-  title: 'Kualeho',
-  text: '8" x 8" woodcut with colored pencil',
-  thumb: '/fineart/thumbs/kualeho.jpg',
-  images: ['//i.imgur.com/rkopfkV.png', '//i.imgur.com/hAGLR84.png'],
-  price: 15000,
-},{
   slug: 'mavs',
   title: 'Mavs',
   text: '6" x 8" Linocut',
   thumb: '/fineart/thumbs/mavs.jpg',
   images: ['//i.imgur.com/EAFKqDul.jpg'],
   price: 8000,
+},{
+  slug: 'kualeho',
+  title: 'Kualeho',
+  text: '8" x 8" woodcut with colored pencil',
+  thumb: '/fineart/thumbs/kualeho.jpg',
+  images: ['//i.imgur.com/rkopfkV.png', '//i.imgur.com/hAGLR84.png'],
+  price: 15000,
 },{
   slug: 'chopu',
   title: 'Chopu',
