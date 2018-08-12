@@ -36,14 +36,6 @@ button {
   font-family: inherit;
 }
 
-a,
-button,
-input,
-select,
-textarea {
-  -webkit-tap-highlight-color: transparent;
-}
-
 html {	height:100%; }
 
 body {
@@ -117,6 +109,8 @@ body {
   cursor: pointer;
   color: #eee;
   background: #222;
+  line-height: 12px;
+  vertical-align: bottom;  
 }
 
 .btn[disabled], .btn.disabled {
@@ -135,7 +129,7 @@ body {
 
 .btn-header-right {
   position: absolute;
-  top: 37px;
+  top: 40px;
   right: 20px;
 }
 
@@ -148,8 +142,23 @@ body {
   padding-top: 20px;
   padding-bottom: 50px; 
   position: relative; 
-  padding-left: 32px;
 }
+
+@media (max-width: 669px) {
+  .header {
+    padding-left: 6px;
+  }
+  .btn-header-right {
+    right: 12px;
+  }
+}
+
+@media (min-width: 670px) {
+  .header {
+    padding-left: 32px;
+  }
+}
+
 
 .header .logo {
   background-image: url(images/hdlogo.jpg);
@@ -596,6 +605,11 @@ body {
   display: inline-block;
   vertical-align: top;
   margin-right: 12px;
+}
+
+.cart-item-count {
+  vertical-align: top;
+  height: 20px;
 }
 
 @media (max-width: 620px) {

@@ -22,7 +22,7 @@ class Display extends React.Component {
         <div className="text-center b-space">
           {this.props.piece.isInCart() ? (
             <span>
-              <span className="btn disabled rm-space">Mahalo!</span>
+              <span className="text r-space">Added</span>
               <button className="btn" onClick={() => this.props.piece.removeFromCart()}>Remove</button>
             </span>
           ) : this.props.piece.price &&
@@ -82,6 +82,10 @@ class Index extends React.Component {
       },
       removeFromCart: function(){
         cart.removePiece(this);
+        self.setState({ cartTotal: cart.total() });
+      },
+      setCount: function(count){
+        cart.setCount(this, count);
         self.setState({ cartTotal: cart.total() });
       },
       isInCart: function(){

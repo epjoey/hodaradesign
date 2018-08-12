@@ -31,9 +31,19 @@ var cart = {
       item = {slug: piece.slug, count: 1};
     }
     else {
-      item = Object.assign({ count: item.count + 1 }, item);
+      item = Object.assign({}, item);
+      item.count += 1;
     }
     cart.addItem(item);
+  },
+
+  setCount: function(piece, count){
+    let item = cart.findItem(piece.slug);
+    let index = cart.items.indexOf(item);
+    item = Object.assign({}, item);
+    item.count = count;
+    cart.items.splice(index, 1, item);
+    return item;
   },
 
   removeItem: function(item){

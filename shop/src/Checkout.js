@@ -20,15 +20,26 @@ class CartItems extends React.Component {
     this.props.onUpdate();
   }
 
+  handleCountChange(event, piece) {
+    piece.setCount(event.target.value);
+    this.props.onUpdate();
+  }
+
   itemJSX(item) {
     const piece = pieces.findPiece(item.slug);
+    const options = Array.from({length: 10}, (x,i) => {
+      return (<option key={i} value={i+1}>{i+1}</option>);
+    });
     return (
       <li key={item.slug} className="h-space b-space">
         <Link to={item.slug} className="cart-item-image"><img width="70" src={piece.thumb} /></Link>
         <span className="cart-item-title text t-space">{piece.title}</span>
-        {/* <select className='cart-item-count'>
-          <option>{item.count}</option>
-        </select> */}
+        <select className='cart-item-count lm-space tm-space'
+          value={item.count} 
+          onChange={(e) => this.handleCountChange(e, piece)}
+        >
+          {options}
+        </select>
         <div className='right t-space'>
           <span className="text h-space">${cart.price(item, piece)/100}</span>
           <button onClick={() => this.removePiece(piece)}
