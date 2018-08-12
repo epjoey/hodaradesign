@@ -108,7 +108,7 @@ body {
 
 .btn {
   display: inline-block;
-  border-radius: 4px;
+  border-radius: 2px;
   text-decoration: none;
   font-size: 11px;
   letter-spacing: 1px;
@@ -139,26 +139,12 @@ body {
   right: 20px;
 }
 
-.btn-buy {
-  margin-left: 10px;
-}
-
-.btn-text {
-  color: #222;
-  padding: 0 12px;
-  font-size: 14px;
-  line-height: 20px;  
-  letter-spacing: 1px;
-  display: inline-block;
-}
-
 .shop {
   padding: 0 20px;
   margin-bottom: 100px;
 }
 
 .header {
-  padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 50px; 
   position: relative; 
@@ -183,12 +169,13 @@ body {
 }
 
 .thumbs li {
-  margin: 0 5px;
+  margin: 5px;
   display: inline-block;
   vertical-align: top;
   height: 50px;
   width: 54px;
   overflow: hidden;
+  border-radius: 4px;
   height: 80px;
   width: 110px;
   background-color: #eee;
@@ -211,7 +198,6 @@ body {
   font-size: 13px;
   color: #666;
   text-align: center;
-  margin-bottom: 4px;
 }
 
 
@@ -240,7 +226,7 @@ body {
 .checkout {
   position: relative;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
 }
 
 .checkout.submitted form,
@@ -465,7 +451,7 @@ body {
 }
 
 .checkout .fieldset {
-  margin: 0 15px 30px;
+  margin: 0 12px 30px;
   padding: 0;
   border-style: none;
   display: -ms-flexbox;
@@ -559,7 +545,8 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 16px;  
+  font-size: 16px; 
+  position: relative; 
 }
 
 .checkout button:active {
@@ -594,43 +581,64 @@ body {
   fill: #000;
 }
 
-.checkout .stripe {
-  text-align: center;
-  font-size: 14px;
-  opacity: 0.4;
-  margin: 52px 0;
-  display: block;
-  width: 100%;
+.checkout img.stripe  {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 
-.checkout .stripe img {
-  vertical-align: middle;
-}
-
-.cart-items {
-  margin-bottom: 12px;
-}
-.cart-item {
-  padding: 0 20px 6px;
-  clear: both;
-}
-.cart-item-img {
+.cart-item-image {
   width: 70px;
-  vertical-align: middle;
-  padding: 0 8px;
+  max-height: 50px;
+  border-radius: 2px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 12px;
 }
-.cart-item-count {
-  margin-left: 4px;
-}
-.cart-item-right {
-  float: right;
-  margin-top: 8px;
-}
-.btn-cart-remove {
-  margin-left: 4px;
+
+.cart-item-title {
+  max-width: 26%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 /* HELPERS */
 .clear { clear: both; }
 .left { float: left; }
 .right { float: right; }
+.wide { display: block; }
+@media (max-width: 620px) {
+  .mobile-clear { clear: both; }
+}
+.text {
+  color: #222;
+  font-size: 14px;
+  line-height: 20px;  
+  letter-spacing: 1px;
+}
+.text:not(.wide) {
+  display: inline-block;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.t-space { padding-top: 12px; }
+.b-space { padding-bottom: 12px; }
+.l-space { padding-left: 12px; }
+.r-space { padding-right: 12px; }
+.h-space {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.v-space {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.rm-space { margin-right: 12px }
+.lm-space { margin-left: 12px }
+.bm-space { margin-bottom: 12px }
+.tm-space { margin-top: 12px }

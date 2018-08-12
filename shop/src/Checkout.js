@@ -1,24 +1,38 @@
 // CheckoutForm.js
 import React from 'react';
 import cart from './cart';
+import pieces from './pieces';
 
 class CartItems extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      items: cart.items
+    }
+  }
+
+  removeItem(item) {
+    cart.removeItem(item);
+    this.setState({
+      items: cart.items
+    });
+
+    this.props.onUpdate();
   }
 
   itemJSX(item) {
-    const piece = cart.findPiece(item);
+    const piece = pieces.findPiece(item.slug);
     return (
-      <li key={item.id} className="cart-item">
-        <img className="cart-item-img" src={piece.thumb} />
-        <span className="btn-text">{piece.title}</span>
-        <select className='cart-item-count'>
+      <li key={item.slug} className="h-space b-space">
+        <a href={'/shop?' + item.slug} className="cart-item-image"><img width="70" src={piece.thumb} /></a>
+        <span className="cart-item-title text t-space">{piece.title}</span>
+        {/* <select className='cart-item-count'>
           <option>{item.count}</option>
-        </select>
-        <div className='cart-item-right'>
-          <span className="btn-text">${cart.price(item, piece)/100}</span>
-          <button onClick={() => cart.remove(piece)} className='btn btn-cart-remove'>Remove</button>
+        </select> */}
+        <div className='right t-space'>
+          <span className="text h-space">${cart.price(item, piece)/100}</span>
+          <button onClick={() => this.removeItem(item)}
+            className='btn right'>Remove</button>
         </div>
       </li>
     );  
@@ -27,9 +41,9 @@ class CartItems extends React.Component {
   render() {
     const cartItems = cart.items.map(item => this.itemJSX(item))
     return (
-      <div className='cart-items'>
-        <ul>{cartItems}</ul>
-      </div>
+      <ul className='b-space'>
+        {cartItems}
+      </ul>
     )
   }
 }
@@ -39,7 +53,7 @@ class Checkout extends React.Component {
     super(props)
     this.stripe = Stripe('pk_test_Mnj7lYWHKA6SmSFVz6j8j70H');  
     this.state = {
-      amount: cart.total()
+      cartTotal: cart.total()
     }
   }
 
@@ -152,7 +166,7 @@ class Checkout extends React.Component {
       shippingCountry: shippingCountry ? shippingCountry.value : undefined,
       email: email ? email.value : undefined,
       phone: phone ? phone.value : undefined,
-      amount: this.state.amount,
+      amount: this.state.cartTotal,
       description: 'Some badass art'
     };
 
@@ -339,7 +353,14 @@ class Checkout extends React.Component {
         <div className="header">
           <a className="logo" href="/shop"></a>
         </div>
-        <CartItems />
+        <CartItems onUpdate={() => this.setState({cartTotal: cart.total()})}/>
+        <div className="h-space b-space wide text-right">
+          <span className="text b-space">Total: ${this.state.cartTotal/100}</span>
+          <a href="/shop" className="btn lm-space right">Keep Shopping</a>
+        </div>        
+        <div className="h-space b-space">
+          <span className="text wide b-space">Enter <b>shipping</b> and <b>credit card</b> info and your purchase will be shipped within <b>two weeks</b>. Mahalo!</span>
+        </div>
         <form>
           <div className="fieldset">
             <input id="shipping-name" className="field" type="text" placeholder="Full Name" required="" autoComplete="name"
@@ -364,7 +385,8 @@ class Checkout extends React.Component {
             <input id="card-zip" className="field empty third-width" placeholder="Zip" />
           </div>
           <button className='btn-submit' type="submit" onClick={(e) => this.handleSubmit(e) }>
-            Pay ${this.state.amount/100}
+            Pay ${this.state.cartTotal/100}
+            <img className='stripe' src="../images/stripe"/>
           </button>
           <div className="error" role="alert">
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
@@ -391,7 +413,18 @@ class Checkout extends React.Component {
             </svg>
           </a>
         </div>
-        <div className="stripe"><img src="../images/stripe.png" width="62"/></div>
+        <div className='h-space b-space'>
+          <div className='text wide clear'>If this doesn't work, mail a check to:</div>
+          <code className='b-space wide'>
+            Joseph Hodara<br/>
+            124 Peyton st<br/>
+            Santa Cruz, CA 95060
+          </code>
+          <div className='text wide'>or email:</div>
+          <code className='b-space wide'>jhodara@gmail.com</code>
+          <div className='text wide'>or call/text:</div>
+          <code>808-268-2882</code>
+        </div>        
       </section>
     );
   }

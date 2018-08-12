@@ -11,21 +11,21 @@ class Display extends React.Component {
     }
     return (
       <div className='display'>
-        <div className="display-image">
+        <div className="display-image b-space">
           <img src={this.props.piece.images[0]} />
         </div>
-        <div className="display-description">
+        <div className="text wide text-center b-space">
           {this.props.piece.title}
         </div>
-        <div className="display-description">
-          {this.props.piece.text}
+        <div className='text wide text-center b-space'>{this.props.piece.text}</div>
+        <div className="text-center b-space">
           {this.props.piece.isInCart() ? (
             <span>
-              <span className="btn btn-buy disabled">Mahalo!</span>
-              <button className="btn btn-buy" onClick={() => this.props.piece.removeFromCart()}>Cancel</button>
+              <span className="btn disabled rm-space">Mahalo!</span>
+              <button className="btn" onClick={() => this.props.piece.removeFromCart()}>Remove</button>
             </span>
           ) : this.props.piece.price &&
-            <button className="btn btn-buy" onClick={() => this.props.piece.addToCart()}>Buy! (${this.props.piece.price / 100})</button>
+            <button className="btn" onClick={() => this.props.piece.addToCart()}>Buy! (${this.props.piece.price / 100})</button>
           }
         </div>
       </div>
@@ -44,11 +44,11 @@ class Shop extends React.Component {
     var self = this;
     var pieceProto = {
       addToCart: function(){
-        cart.add(this);
+        cart.addPiece(this);
         self.setState({ cartTotal: cart.total() });
       },
       removeFromCart: function(){
-        cart.remove(this);
+        cart.removePiece(this);
         self.setState({ cartTotal: cart.total() });
       },
       isInCart: function(){
@@ -80,7 +80,7 @@ class Shop extends React.Component {
 
     return (
       <div className="shop">
-        <div className="header">
+        <div className="header l-space">
           <a href="/shop" className="logo"></a>
           { this.state.cartTotal ? (
             <a href="?checkout"
