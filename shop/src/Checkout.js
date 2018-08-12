@@ -386,7 +386,7 @@ class Checkout extends React.Component {
           </div>
           <button className='btn-submit' type="submit" onClick={(e) => this.handleSubmit(e) }>
             Pay ${this.state.cartTotal/100}
-            <img className='stripe' src="../images/stripe"/>
+            <img className='stripe' src="../images/stripe.png"/>
           </button>
           <div className="error" role="alert">
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">

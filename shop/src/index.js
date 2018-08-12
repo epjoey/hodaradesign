@@ -45,7 +45,7 @@ class Shop extends React.Component {
     var pieceProto = {
       addToCart: function(){
         cart.addPiece(this);
-        self.setState({ cartTotal: cart.total() });
+        window.location.href = '/shop?checkout';
       },
       removeFromCart: function(){
         cart.removePiece(this);
