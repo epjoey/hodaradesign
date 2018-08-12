@@ -102,7 +102,7 @@ class Index extends React.Component {
           { this.state.slug !== 'checkout' && !!this.state.cartTotal && (
             <Link to='checkout'
               className="btn btn-lg btn-header-right"
-            >Checkout</Link>) }
+            >Checkout (${ this.state.cartTotal/100 })</Link>) }
           { this.state.slug === 'checkout' && (
             <Link to=''
               className="btn btn-lg btn-header-right"
