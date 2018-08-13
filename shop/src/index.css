@@ -612,13 +612,35 @@ body {
   height: 20px;
 }
 
-@media (max-width: 620px) {
+@media (min-width: 621px) {
   .cart-item-title {
-    max-width: 26%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }  
+    padding-top: 12px;
+  }
+
+  .cart-item-count {
+    margin-left: 12px;
+    margin-top: 12px;
+  }
+
+  .cart-item-remove {
+    margin-top: 12px;
+    margin-left: 12px;
+    float: right;
+  }
+  .cart-item-price {
+    padding-top: 12px;
+    float: right;
+  }
+}
+
+@media (max-width: 620px) {
+  .cart-item-remove {
+    margin-right: 12px;
+  }
+
+  .cart-item-image {
+    float: left;
+  }
 }
 
 /* HELPERS */

@@ -17,12 +17,10 @@ class CartItems extends React.Component {
     this.setState({
       items: cart.items
     });
-    this.props.onUpdate();
   }
 
   handleCountChange(event, piece) {
     piece.setCount(event.target.value);
-    this.props.onUpdate();
   }
 
   itemJSX(item) {
@@ -33,18 +31,17 @@ class CartItems extends React.Component {
     return (
       <li key={item.slug} className="h-space b-space">
         <Link to={item.slug} className="cart-item-image"><img width="70" src={piece.thumb} /></Link>
-        <span className="cart-item-title text t-space">{piece.title}</span>
-        <select className='cart-item-count lm-space tm-space'
+        <span className="cart-item-title text">{piece.title}</span>
+        <select className='cart-item-count'
           value={item.count} 
           onChange={(e) => this.handleCountChange(e, piece)}
         >
           {options}
         </select>
-        <div className='right t-space'>
-          <span className="text h-space">${cart.price(item, piece)/100}</span>
-          <button onClick={() => this.removePiece(piece)}
-            className='btn right'>Remove</button>
-        </div>
+        <button onClick={() => this.removePiece(piece)}
+          className='btn cart-item-remove'
+        >Remove</button>        
+        <span className="text cart-item-price">${cart.price(item, piece)/100}</span>
       </li>
     );  
   }
@@ -63,9 +60,6 @@ class Checkout extends React.Component {
   constructor(props) {
     super(props)
     this.stripe = Stripe('pk_test_Mnj7lYWHKA6SmSFVz6j8j70H');  
-    this.state = {
-      cartTotal: cart.total()
-    }
   }
 
   registerElements(elements) {
@@ -177,7 +171,7 @@ class Checkout extends React.Component {
       shippingCountry: shippingCountry ? shippingCountry.value : undefined,
       email: email ? email.value : undefined,
       phone: phone ? phone.value : undefined,
-      amount: this.state.cartTotal,
+      amount: cart.total(),
       description: 'Some badass art'
     };
 
@@ -359,11 +353,12 @@ class Checkout extends React.Component {
   }
  
   render() {
+    const cartTotal = cart.total();
     return (
       <section className="checkout">
-        <CartItems onUpdate={() => this.setState({cartTotal: cart.total()})}/>
+        <CartItems />
         <div className="h-space b-space wide text-right">
-          <span className="text b-space">Total: ${this.state.cartTotal/100}</span>
+          <span className="text b-space">Total: ${cartTotal/100}</span>
         </div>        
         <div className="h-space b-space">
           <span className="text wide b-space">Enter <b>shipping</b> and <b>credit card</b> info and your purchase will be shipped within <b>two weeks</b>. Mahalo!</span>
@@ -392,7 +387,7 @@ class Checkout extends React.Component {
             <input id="card-zip" className="field empty third-width" placeholder="Zip" />
           </div>
           <button className='btn-submit' type="submit" onClick={(e) => this.handleSubmit(e) }>
-            Pay ${this.state.cartTotal/100}
+            Pay ${cartTotal/100}
             <img className='stripe' src="../images/stripe.png"/>
           </button>
           <div className="error" role="alert">
