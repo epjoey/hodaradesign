@@ -638,6 +638,14 @@ body {
     height: 62px;
     clear: both;
   }
+  .cart-item-title {
+    float: left;
+  }
+
+  .cart-item-count {
+    float: left;
+  }
+
   .cart-item-price {
     float: left;
   }
