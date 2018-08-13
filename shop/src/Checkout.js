@@ -29,7 +29,7 @@ class CartItems extends React.Component {
       return (<option key={i} value={i+1}>{i+1}</option>);
     });
     return (
-      <li key={item.slug} className="h-space b-space">
+      <li key={item.slug} className="cart-item h-space b-space">
         <Link to={item.slug} className="cart-item-image"><img width="70" src={piece.thumb} /></Link>
         <span className="cart-item-title text">{piece.title}</span>
         <select className='cart-item-count'

@@ -610,6 +610,7 @@ body {
 .cart-item-count {
   vertical-align: top;
   height: 20px;
+  margin-left: 12px;
 }
 
 @media (min-width: 621px) {
@@ -618,7 +619,6 @@ body {
   }
 
   .cart-item-count {
-    margin-left: 12px;
     margin-top: 12px;
   }
 
@@ -634,8 +634,16 @@ body {
 }
 
 @media (max-width: 620px) {
+  .cart-item {
+    height: 62px;
+    clear: both;
+  }
+  .cart-item-price {
+    float: left;
+  }
+
   .cart-item-remove {
-    margin-right: 12px;
+    margin-left: 12px;
   }
 
   .cart-item-image {
