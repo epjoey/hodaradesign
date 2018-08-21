@@ -26,14 +26,16 @@ const pieces = [{
   thumb: '/fineart/thumbs/aloha.jpg',
   images: ['//i.imgur.com/sP2dmcM.jpg'],
   price: 8000,
-},{
-  slug: 'sunrise',
-  title: 'Sunrise',
-  text: '6" x 8" Linocut',
-  thumb: '/fineart/thumbs/sunrise.jpg',
-  images: ['//i.imgur.com/sP2dmcM.jpg'],
-  price: 8000,
-}];
+}
+// ,{
+//   slug: 'sunrise',
+//   title: 'Sunrise',
+//   text: '6" x 8" Linocut',
+//   thumb: '/fineart/thumbs/sunrise.jpg',
+//   images: ['//i.imgur.com/sP2dmcM.jpg'],
+//   price: 8000,
+// }
+];
 
 pieces.findPiece = (slug) => pieces.find((piece) => piece.slug === slug);
 
