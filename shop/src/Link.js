@@ -2,12 +2,15 @@ import React from 'react';
 
 const BASE = '/shop';
 const href = function(to) {
-  return BASE + (to ? '#' + to : '');
+  return BASE + (to ? '/' + to : '');
 };
 
 class Link extends React.Component {
   static to(to) {
     history.pushState({ to: to }, '', href(to));
+  }
+  static current() {
+    return location.hash.slice(1);
   }
 
   isModifiedEvent(event) {
