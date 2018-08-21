@@ -1,8 +1,8 @@
 import React from 'react';
 
-const BASE = '/shop';
+const BASE = '/shop/';
 const href = function(to) {
-  return BASE + (to ? '/' + to : '');
+  return BASE + to;
 };
 
 class Link extends React.Component {
@@ -10,7 +10,7 @@ class Link extends React.Component {
     history.pushState({ to: to }, '', href(to));
   }
   static current() {
-    return location.hash.slice(1);
+    return location.pathname.split(BASE)[1];
   }
 
   isModifiedEvent(event) {

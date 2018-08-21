@@ -64,7 +64,7 @@ class Index extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      slug: window.location.hash.slice(1),
+      slug: Link.current(),
       cartTotal: cart.total()
     };
 
