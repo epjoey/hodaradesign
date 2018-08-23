@@ -26,7 +26,7 @@ class Display extends React.Component {
               <button className="btn" onClick={() => this.props.piece.removeFromCart()}>Remove</button>
             </span>
           ) : this.props.piece.price &&
-            <button className="btn" onClick={() => this.props.piece.addToCart()}>Buy! (${this.props.piece.price / 100})</button>
+            <button className="btn" onClick={() => this.props.piece.addToCart()}>Buy (${this.props.piece.price / 100})</button>
           }
         </div>
       </div>

@@ -36,6 +36,53 @@ button {
   font-family: inherit;
 }
 
+
+/* /////////////////////////////////////////////*/
+/* /////////////////// HELPERS //////////////// */
+/* /////////////////////////////////////////////*/
+.clear { clear: both; }
+.left { float: left; }
+.right { float: right; }
+.wide { display: block; }
+@media (max-width: 620px) {
+  .mobile-clear { clear: both; }
+}
+.text {
+  color: #222;
+  font-size: 14px;
+  line-height: 20px;  
+  letter-spacing: 1px;
+}
+.text:not(.wide) {
+  display: inline-block;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.t-space { padding-top: 12px; }
+.b-space { padding-bottom: 12px; }
+.l-space { padding-left: 12px; }
+.r-space { padding-right: 12px; }
+.h-space {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.v-space {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.rm-space { margin-right: 12px }
+.lm-space { margin-left: 12px }
+.bm-space { margin-bottom: 12px }
+.tm-space { margin-top: 12px }
+
+
+/* //////////////////////////////////////////// */
+/* ////////////////// STRUCTURE /////////////// */
+/* //////////////////////////////////////////// */
 html {	height:100%; }
 
 body {
@@ -98,6 +145,10 @@ body {
   box-shadow: 0 0 15px 10px #fff;
 }
 
+
+/* /////////////////////////////////////////////*/
+/* /////////////////// BUTTONS //////////////// */
+/* /////////////////////////////////////////////*/
 .btn {
   display: inline-block;
   border-radius: 4px;
@@ -133,11 +184,10 @@ body {
   right: 20px;
 }
 
-.shop {
-  padding: 0 20px;
-  margin-bottom: 100px;
-}
 
+/* /////////////////////////////////////////////*/
+/* /////////////////// HEADER ///////////////// */
+/* /////////////////////////////////////////////*/
 .header {
   padding-top: 20px;
   padding-bottom: 50px; 
@@ -172,6 +222,15 @@ body {
   opacity: 1;
 }
 
+
+/* /////////////////////////////////////////////*/
+/* /////////////////// SHOP /////////////////// */
+/* /////////////////////////////////////////////*/
+.shop {
+  padding: 0 20px;
+  margin-bottom: 100px;
+}
+
 .thumbs {
   text-align: center;
   max-width: 600px;
@@ -191,6 +250,10 @@ body {
   background-color: #eee;
 }
 
+
+/* /////////////////////////////////////////////*/
+/* /////////////////// DISPLAY //////////////// */
+/* /////////////////////////////////////////////*/
 .display {
   max-width: 600px;
   margin: 0 auto 60px;
@@ -211,6 +274,70 @@ body {
 }
 
 
+/* /////////////////////////////////////////////*/
+/* //////////////////// CART /////////////////// */
+/* /////////////////////////////////////////////*/
+.cart-item-image {
+  width: 70px;
+  max-height: 50px;
+  border-radius: 2px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 12px;
+}
+
+.cart-item-count {
+  vertical-align: top;
+  height: 20px;
+  margin-left: 12px;
+}
+
+@media (min-width: 621px) {
+  .cart-item-title {
+    padding-top: 12px;
+  }
+
+  .cart-item-count {
+    margin-top: 12px;
+  }
+
+  .cart-item-remove {
+    margin-top: 12px;
+    margin-left: 12px;
+    float: right;
+  }
+  .cart-item-price {
+    padding-top: 12px;
+    float: right;
+  }
+}
+
+@media (max-width: 620px) {
+  .cart-item {
+    height: 62px;
+    clear: both;
+  }
+  .cart-item-title {
+    float: left;
+  }
+
+  .cart-item-count {
+    float: left;
+  }
+
+  .cart-item-price {
+    float: left;
+  }
+
+  .cart-item-remove {
+    margin-left: 12px;
+  }
+
+  .cart-item-image {
+    float: left;
+  }
+}
 
 /* /////////////////////////////////////////////*/
 /* ////////////////// CHECKOUT //////////////// */
@@ -278,59 +405,24 @@ body {
   stroke-dashoffset: 0 !important;
 }
 
-.checkout .caption {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  width: 100%;
-  top: 100%;
-  left: 0;
-  padding: 15px 10px 0;
-  color: #aab7c4;
-  font-family: "Helvetica Neue", "Open Sans", "Segoe UI", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.checkout .caption * {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-.checkout .caption .no-charge {
-  color: #cfd7df;
-  margin-right: 10px;
-}
-
-.checkout .caption a.source {
-  text-align: right;
-  color: inherit;
-  transition: color 0.1s ease-in-out;
-  margin-left: 10px;
-}
-
-.checkout .caption a.source:hover {
-  color: #6772e5;
-}
-
-.checkout .caption a.source:active {
-  color: #43458b;
-}
-
-.checkout .caption a.source  svg {
-  margin-right: 10px;
-}
-
-.checkout .caption a.source svg path {
-  fill: currentColor;
-}
-
 .checkout form {
   position: relative;
   transition-property: opacity, transform;
   transition-duration: 0.35s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.checkout.empty-cart form {
+  position: relative;
+}
+
+.checkout.empty-cart form .shade {
+  position: absolute;
+  background-color: rgba(255, 255, 255, .5);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .checkout form input::-webkit-input-placeholder {
@@ -367,6 +459,7 @@ body {
 
 .checkout .error .message {
   font-size: inherit;
+  color: #fa755a;
 }
 
 .checkout .error svg {
@@ -374,6 +467,14 @@ body {
   flex-shrink: 0;
   margin-top: -1px;
   margin-right: 10px;
+}
+
+.checkout .error svg .base {
+  fill: #fa755a;
+}
+
+.checkout .error svg .glyph {
+  fill: #fff;
 }
 
 .checkout .success {
@@ -424,13 +525,15 @@ body {
   stroke-dashoffset: 62.75;
   transform-origin: 50% 50%;
   transition: stroke-dashoffset 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
-  animation: spin 1s linear infinite;  
+  animation: spin 1s linear infinite; 
+  stroke: #fcd669; 
 }
 
 .checkout .success .icon .checkmark {
   stroke-dasharray: 60;
   stroke-dashoffset: 60;
   transition: stroke-dashoffset 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) 0.35s;
+  stroke: #fff;
 }
 
 .checkout .success .title {
@@ -444,6 +547,7 @@ body {
   font-weight: 400;
   margin-bottom: 25px;
   line-height: 1.6em;
+  color: #9cabc8;
 }
 
 .checkout .success .message span {
@@ -458,6 +562,10 @@ body {
 
 .checkout .success .reset svg {
   will-change: transform;
+}
+
+.checkout .success .reset path {
+  fill: #000;
 }
 
 .checkout .fieldset {
@@ -563,138 +671,8 @@ body {
   background-color: #f5be58;
 }
 
-.checkout .error svg .base {
-  fill: #fa755a;
-}
-
-.checkout .error svg .glyph {
-  fill: #fff;
-}
-
-.checkout .error .message {
-  color: #fa755a;
-}
-
-.checkout .success .icon .border {
-  stroke: #fcd669;
-}
-
-.checkout .success .icon .checkmark {
-  stroke: #fff;
-}
-
-.checkout .success .message {
-  color: #9cabc8;
-}
-
-.checkout .success .reset path {
-  fill: #000;
-}
-
 .checkout img.stripe  {
   position: absolute;
   top: 8px;
   right: 8px;
 }
-
-.cart-item-image {
-  width: 70px;
-  max-height: 50px;
-  border-radius: 2px;
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 12px;
-}
-
-.cart-item-count {
-  vertical-align: top;
-  height: 20px;
-  margin-left: 12px;
-}
-
-@media (min-width: 621px) {
-  .cart-item-title {
-    padding-top: 12px;
-  }
-
-  .cart-item-count {
-    margin-top: 12px;
-  }
-
-  .cart-item-remove {
-    margin-top: 12px;
-    margin-left: 12px;
-    float: right;
-  }
-  .cart-item-price {
-    padding-top: 12px;
-    float: right;
-  }
-}
-
-@media (max-width: 620px) {
-  .cart-item {
-    height: 62px;
-    clear: both;
-  }
-  .cart-item-title {
-    float: left;
-  }
-
-  .cart-item-count {
-    float: left;
-  }
-
-  .cart-item-price {
-    float: left;
-  }
-
-  .cart-item-remove {
-    margin-left: 12px;
-  }
-
-  .cart-item-image {
-    float: left;
-  }
-}
-
-/* HELPERS */
-.clear { clear: both; }
-.left { float: left; }
-.right { float: right; }
-.wide { display: block; }
-@media (max-width: 620px) {
-  .mobile-clear { clear: both; }
-}
-.text {
-  color: #222;
-  font-size: 14px;
-  line-height: 20px;  
-  letter-spacing: 1px;
-}
-.text:not(.wide) {
-  display: inline-block;
-}
-.text-right {
-  text-align: right;
-}
-.text-center {
-  text-align: center;
-}
-.t-space { padding-top: 12px; }
-.b-space { padding-bottom: 12px; }
-.l-space { padding-left: 12px; }
-.r-space { padding-right: 12px; }
-.h-space {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.v-space {
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-.rm-space { margin-right: 12px }
-.lm-space { margin-left: 12px }
-.bm-space { margin-bottom: 12px }
-.tm-space { margin-top: 12px }

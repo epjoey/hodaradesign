@@ -355,7 +355,7 @@ class Checkout extends React.Component {
   render() {
     const cartTotal = cart.total();
     return (
-      <section className="checkout">
+      <section className={'checkout ' + (!cartTotal ? 'empty-cart' : '')}>
         <CartItems />
         <div className="h-space b-space wide text-right">
           <span className="text b-space">Total: ${cartTotal/100}</span>
@@ -397,6 +397,7 @@ class Checkout extends React.Component {
             </svg>
             <span className="message"></span>
           </div>
+          <span class="shade"></span>
         </form>
         <div className="success">
           <div className="icon">
