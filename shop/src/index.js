@@ -26,7 +26,7 @@ class Display extends React.Component {
               <button className="btn" onClick={() => this.props.piece.removeFromCart()}>Remove</button>
             </span>
           ) : this.props.piece.price &&
-            <button className="btn" onClick={() => this.props.piece.addToCart()}>Buy (${this.props.piece.price / 100})</button>
+            <button className="btn" onClick={() => this.props.piece.addToCart()}>Trade ({this.props.piece.price})</button>
           }
         </div>
       </div>
@@ -106,7 +106,7 @@ class Index extends React.Component {
           { this.state.slug !== 'checkout' && !!this.state.cartTotal && (
             <Link to='checkout'
               className="btn btn-lg btn-header-right"
-            >Checkout (${ this.state.cartTotal/100 })</Link>) }
+            >Checkout</Link>) }
           { this.state.slug === 'checkout' && (
             <Link to=''
               className="btn btn-lg btn-header-right"

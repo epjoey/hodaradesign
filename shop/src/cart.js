@@ -69,7 +69,8 @@ var cart = {
   },
 
   price: function(item, piece){
-    return (item && piece) ? (item.count * piece.price) : 0;
+    return piece.price;
+    // return (item && piece) ? (item.count * piece.price) : 0;
   },
 
   has: function(piece){
@@ -77,7 +78,8 @@ var cart = {
   },
 
   total: function(){
-    return cart.items.reduce((total, item) => total + cart.price(item, pieces.findPiece(item.slug)), 0);
+    return cart.items.length;
+    // return cart.items.reduce((total, item) => total + cart.price(item, pieces.findPiece(item.slug)), 0);
   }
 };
 

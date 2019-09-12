@@ -41,7 +41,7 @@ class CartItems extends React.Component {
         <button onClick={() => this.removePiece(piece)}
           className='btn cart-item-remove'
         >Remove</button>        
-        <span className="text cart-item-price">${cart.price(item, piece)/100}</span>
+        <span className="text cart-item-price">{cart.price(item, piece)}</span>
       </li>
     );  
   }
@@ -59,17 +59,71 @@ class CartItems extends React.Component {
 class Checkout extends React.Component {
   constructor(props) {
     super(props)
-    this.stripe = Stripe('pk_test_Mnj7lYWHKA6SmSFVz6j8j70H');  
+    if('Stripe' in window){
+      this.stripe = Stripe('pk_test_Mnj7lYWHKA6SmSFVz6j8j70H');  
+    }
   }
 
-  registerElements(elements) {
-    this.elements = elements;
-    this.container = document.querySelector('.checkout');
-
-    this.form = this.container.querySelector('form');
-    this.error = this.form.querySelector('.error');
-    this.errorMessage = this.error.querySelector('.message');
-    this.success = this.container.querySelector('.success');
+  registerCreditCardElements() {
+    var elements = this.stripe.elements({
+      // Stripe's examples are localized to specific languages, but if
+      // you wish to have Elements automatically detect your user's locale,
+      // use `locale: 'auto'` instead.
+      locale: window.__exampleLocale,
+    });
+  
+    var elementStyles = {
+      base: {
+        color: '#fff',
+        fontWeight: 600,
+        fontSize: '16px',
+  
+        ':focus': {
+          color: '#fff',
+        },
+  
+        '::placeholder': {
+          color: '#cfd7df',
+        },
+  
+        ':focus::placeholder': {
+          color: '#cfd7df',
+        },
+      },
+      invalid: {
+        color: '#fff',
+        ':focus': {
+          color: '#FA755A',
+        },
+        '::placeholder': {
+          color: '#FFCCA5',
+        },
+      },
+    };
+  
+    var elementClasses = {
+      focus: 'focus',
+      empty: 'empty',
+      invalid: 'invalid',
+    };
+  
+    var cardNumber = elements.create('cardNumber', {
+      style: elementStyles,
+      classes: elementClasses,
+    });
+    cardNumber.mount('#card-number');
+  
+    var cardExpiry = elements.create('cardExpiry', {
+      style: elementStyles,
+      classes: elementClasses,
+    });
+    cardExpiry.mount('#card-expiry');
+  
+    var cardCvc = elements.create('cardCvc', {
+      style: elementStyles,
+      classes: elementClasses,
+    });
+    cardCvc.mount('#card-cvc');
 
     // Listen for errors from each Element, and show error messages in the UI.
     let savedErrors = {};
@@ -112,7 +166,10 @@ class Checkout extends React.Component {
       // form.querySelector('#phone').value = '8082682882';
       form.querySelector('#card-name').value = 'Tester McTesterson';
       form.querySelector('#card-zip').value = '222222';
-    };      
+    }; 
+
+    // Save elements to class so we can access them on submit.
+    this.elements = elements;     
   }
   
   enableInputs() {
@@ -212,67 +269,15 @@ class Checkout extends React.Component {
   }
 
   componentDidMount() {
-    var elements = this.stripe.elements({
-      // Stripe's examples are localized to specific languages, but if
-      // you wish to have Elements automatically detect your user's locale,
-      // use `locale: 'auto'` instead.
-      locale: window.__exampleLocale,
-    });
-  
-    var elementStyles = {
-      base: {
-        color: '#fff',
-        fontWeight: 600,
-        fontSize: '16px',
-  
-        ':focus': {
-          color: '#fff',
-        },
-  
-        '::placeholder': {
-          color: '#cfd7df',
-        },
-  
-        ':focus::placeholder': {
-          color: '#cfd7df',
-        },
-      },
-      invalid: {
-        color: '#fff',
-        ':focus': {
-          color: '#FA755A',
-        },
-        '::placeholder': {
-          color: '#FFCCA5',
-        },
-      },
-    };
-  
-    var elementClasses = {
-      focus: 'focus',
-      empty: 'empty',
-      invalid: 'invalid',
-    };
-  
-    var cardNumber = elements.create('cardNumber', {
-      style: elementStyles,
-      classes: elementClasses,
-    });
-    cardNumber.mount('#card-number');
-  
-    var cardExpiry = elements.create('cardExpiry', {
-      style: elementStyles,
-      classes: elementClasses,
-    });
-    cardExpiry.mount('#card-expiry');
-  
-    var cardCvc = elements.create('cardCvc', {
-      style: elementStyles,
-      classes: elementClasses,
-    });
-    cardCvc.mount('#card-cvc');
-  
-    this.registerElements([cardNumber, cardExpiry, cardCvc]);    
+    this.container = document.querySelector('.checkout');
+    this.form = this.container.querySelector('form');
+    this.error = this.form.querySelector('.error');
+    this.errorMessage = this.error.querySelector('.message');
+    this.success = this.container.querySelector('.success');
+
+    if(this.stripe){  
+      this.registerCreditCardElements();    
+    }
   }
 
   handleSubmit(e) {
@@ -357,11 +362,11 @@ class Checkout extends React.Component {
     return (
       <section className={'checkout ' + (!cartTotal ? 'empty-cart' : '')}>
         <CartItems />
-        <div className="h-space b-space wide text-right">
+        {/* <div className="h-space b-space wide text-right">
           <span className="text b-space">Total: ${cartTotal/100}</span>
-        </div>        
+        </div>*/}
         <div className="h-space b-space">
-          <span className="text wide b-space">Enter <b>shipping</b> and <b>credit card</b> info and your purchase will be shipped within <b>two weeks</b>. Mahalo!</span>
+          <span className="text wide b-space">Enter <b>shipping</b> info and your order will be shipped within <b>two weeks</b>. Mahalo!</span>
         </div>
         <form>
           <div className="fieldset">
@@ -379,15 +384,15 @@ class Checkout extends React.Component {
             <input id="email" className="field half-width-desktop" type="email" placeholder="Email" required="" autoComplete="email" />
             {/* <input id="phone" className="field half-width-desktop" type="tel" placeholder="Phone" required="" autoComplete="tel" /> */}
           </div>
-          <div className="fieldset">
+          {/* <div className="fieldset">
             <input id="card-name" className="field" type="text" placeholder="Name on card" required="" autoComplete="name" />
             <div id="card-number" className="field empty"></div>
             <div id="card-expiry" className="field empty third-width"></div>
             <div id="card-cvc" className="field empty third-width"></div>
             <input id="card-zip" className="field empty third-width" placeholder="Zip" />
-          </div>
+          </div> */}
           <button className='btn-submit' type="submit" onClick={(e) => this.handleSubmit(e) }>
-            Pay ${cartTotal/100}
+            Place Order
             <img className='stripe' src="../images/stripe.png"/>
           </button>
           <div className="error" role="alert">
@@ -397,7 +402,7 @@ class Checkout extends React.Component {
             </svg>
             <span className="message"></span>
           </div>
-          <span class="shade"></span>
+          <span className="shade"></span>
         </form>
         <div className="success">
           <div className="icon">
@@ -417,10 +422,10 @@ class Checkout extends React.Component {
           </a>
         </div>
         <div className='h-space b-space'>
-          <div className='text wide clear'>If this doesn't work, mail a check to:</div>
+          <div className='text wide clear'>If this doesn't work, the artist can be reached at:</div>
           <code className='b-space wide'>
             Joseph Hodara<br/>
-            124 Peyton st<br/>
+            326 Columbia st<br/>
             Santa Cruz, CA 95060
           </code>
           <div className='text wide'>or email:</div>
