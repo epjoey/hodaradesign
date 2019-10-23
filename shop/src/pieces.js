@@ -3,7 +3,7 @@ const pieces = [{
   title: 'Mavs',
   text: '6" x 8" Linocut',
   thumb: '/fineart/thumbs/mavs.jpg',
-  images: ['//i.imgur.com/EAFKqDul.jpg'],
+  images: ['/fineart/images/mavs.jpg'], // is this better? //i.imgur.com/EAFKqDul.jpg
   price: '6 rides to the beach',
 },{
   slug: 'kualeho',
@@ -25,7 +25,14 @@ const pieces = [{
   text: '8" x 10" Linocut',
   thumb: '/fineart/thumbs/aloha.jpg',
   images: ['//i.imgur.com/sP2dmcM.jpg'],
-  price: '3 beach cleanups',
+  price: '5 beach cleanups',
+},{
+  slug: 'noriega',
+  title: 'Noriega Tree',
+  text: '8" x 10" Linocut on rice paper',
+  thumb: '/fineart/thumbs/noriega.jpg',
+  images: ['/fineart/images/noriega.jpg'],
+  price: '5 beach cleanups',
 }
 // ,{
 //   slug: 'sunrise',

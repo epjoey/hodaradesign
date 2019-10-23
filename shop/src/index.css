@@ -250,6 +250,13 @@ body {
   background-color: #eee;
 }
 
+.thumbs li a {
+  display: inline-block;
+  line-height: 70px;
+  width: 100%;
+  height: 100%;
+}
+
 
 /* /////////////////////////////////////////////*/
 /* /////////////////// DISPLAY //////////////// */

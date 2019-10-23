@@ -36,19 +36,40 @@ class Display extends React.Component {
 
 class Shop extends React.Component {
   render() {
-    const thumbs = pieces.map(piece => {
-      return (
-        <li key={piece.slug}>
-          <Link to={piece.slug}>
-            <img src={piece.thumb} />
-          </Link>
-        </li>
-      );
-    });
-
+    // Display the first piece by default.
     const piece = this.props.slug ? pieces.find(piece => {
       return piece.slug === this.props.slug;
     }) : pieces[0];
+
+    // break every 3 or 4 thumbs
+    let i = 0;
+    let thumbs = [];
+    let lastPiece = null;
+    while(i < pieces.length){
+      if(i > 0 && i % 3 === 0 && lastPiece){
+        thumbs.push(<br />)
+        lastPiece = null;
+      }
+      else {
+        lastPiece = pieces[i]
+        thumbs.push(
+          <li key={lastPiece.slug}>
+            <Link to={lastPiece.slug}>
+              <img src={lastPiece.thumb} />
+            </Link>
+          </li>
+        );
+        i++;
+      }
+    };
+
+    thumbs.push(
+      <li>
+        <a href="/art/">
+          See more
+        </a>
+      </li>
+    );
 
     return (
       <div className="shop">
@@ -78,7 +99,7 @@ class Index extends React.Component {
       addToCart: function(){
         cart.addPiece(this);
         self.setState({ cartTotal: cart.total() });
-        Link.to('checkout');
+        Link.goTo('checkout');
       },
       removeFromCart: function(){
         cart.removePiece(this);
@@ -133,7 +154,7 @@ ReactDOM.render(
 (function(history){
   var pushState = history.pushState;
   history.pushState = function() {
-    if (typeof history.onpushstate == "function") {
+    if(typeof history.onpushstate == "function"){
       history.onpushstate.apply(history, arguments);
     }
     // ... whatever else you want to do

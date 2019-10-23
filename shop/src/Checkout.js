@@ -129,7 +129,7 @@ class Checkout extends React.Component {
     let savedErrors = {};
     elements.forEach((element, idx) => {
       element.on('change', event => {
-        if (event.error) {
+        if(event.error){
           this.error.classList.add('visible');
           savedErrors[idx] = event.error.message;
           this.errorMessage.innerText = event.error.message;
@@ -143,7 +143,7 @@ class Checkout extends React.Component {
               return maybeFoundError || savedErrors[key];
             }, null);
 
-          if (nextError) {
+          if(nextError){
             // Now that they've fixed the current error, show another one.
             this.errorMessage.innerText = nextError;
           } else {

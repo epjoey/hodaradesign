@@ -6,7 +6,7 @@ const href = function(to) {
 };
 
 class Link extends React.Component {
-  static to(to) {
+  static goTo(to) {
     history.pushState({ to: to }, '', href(to));
   }
   static current() {
