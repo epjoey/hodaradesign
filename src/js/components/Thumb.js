@@ -1,10 +1,10 @@
 import React from 'react';
-import urls from './urls';
+
 
 class Thumb extends React.Component {
   render() {
     return (
-      <img src={this.props.piece.thumb} />
+      <img width={this.props.width} src={this.props.piece.thumb} />
     );
   }  
 };

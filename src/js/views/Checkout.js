@@ -1,66 +1,12 @@
-// CheckoutForm.js
 import React from 'react';
-import cart from './cart';
-import pieces from './pieces';
-import Link from './Link';
-
-class CartItems extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: cart.items
-    }
-  }
-
-  removePiece(piece) {
-    piece.removeFromCart()
-    this.setState({
-      items: cart.items
-    });
-  }
-
-  handleCountChange(event, piece) {
-    piece.setCount(event.target.value);
-  }
-
-  itemJSX(item) {
-    const piece = pieces.findPiece(item.slug);
-    const options = Array.from({length: 10}, (x,i) => {
-      return (<option key={i} value={i+1}>{i+1}</option>);
-    });
-    return (
-      <li key={item.slug} className="cart-item h-space b-space">
-        <Link href={pieces.piecePath(piece)} className="cart-item-image"><img width="70" src={piece.thumb} /></Link>
-        <span className="cart-item-title text">{piece.title}</span>
-        <select className='cart-item-count'
-          value={item.count} 
-          onChange={(e) => this.handleCountChange(e, piece)}
-        >
-          {options}
-        </select>
-        <button onClick={() => this.removePiece(piece)}
-          className='btn cart-item-remove'
-        >Remove</button>        
-        <span className="text cart-item-price">{cart.price(item, piece)}</span>
-      </li>
-    );  
-  }
-
-  render() {
-    const cartItems = cart.items.map(item => this.itemJSX(item))
-    return (
-      <ul className='b-space'>
-        {cartItems}
-      </ul>
-    )
-  }
-}
+import cart from '../services/cart';
+import Cart from '../components/cart';
 
 class Checkout extends React.Component {
   constructor(props) {
     super(props)
     if('Stripe' in window){
-      this.stripe = Stripe('pk_test_Mnj7lYWHKA6SmSFVz6j8j70H');  
+      this.stripe = Stripe('pk_test_Mnj7lYWHKA6SmSFVz6j8j70H');
     }
   }
 
@@ -72,21 +18,21 @@ class Checkout extends React.Component {
       // use `locale: 'auto'` instead.
       locale: window.__exampleLocale,
     });
-  
+
     var elementStyles = {
       base: {
         color: '#fff',
         fontWeight: 600,
         fontSize: '16px',
-  
+
         ':focus': {
           color: '#fff',
         },
-  
+
         '::placeholder': {
           color: '#cfd7df',
         },
-  
+
         ':focus::placeholder': {
           color: '#cfd7df',
         },
@@ -101,25 +47,25 @@ class Checkout extends React.Component {
         },
       },
     };
-  
+
     var elementClasses = {
       focus: 'focus',
       empty: 'empty',
       invalid: 'invalid',
     };
-  
+
     var cardNumber = elements.create('cardNumber', {
       style: elementStyles,
       classes: elementClasses,
     });
     cardNumber.mount('#card-number');
-  
+
     var cardExpiry = elements.create('cardExpiry', {
       style: elementStyles,
       classes: elementClasses,
     });
     cardExpiry.mount('#card-expiry');
-  
+
     var cardCvc = elements.create('cardCvc', {
       style: elementStyles,
       classes: elementClasses,
@@ -153,8 +99,8 @@ class Checkout extends React.Component {
           }
         }
       });
-    }); 
-      
+    });
+
     const form = this.form;
     window.pop = function(){
       form.querySelector('#shipping-name').value = 'Tester McTester';
@@ -167,12 +113,12 @@ class Checkout extends React.Component {
       // form.querySelector('#phone').value = '8082682882';
       form.querySelector('#card-name').value = 'Tester McTesterson';
       form.querySelector('#card-zip').value = '222222';
-    }; 
+    };
 
     // Save elements to class so we can access them on submit.
-    this.elements = elements;     
+    this.elements = elements;
   }
-  
+
   enableInputs() {
     Array.prototype.forEach.call(
       this.form.querySelectorAll(
@@ -244,7 +190,7 @@ class Checkout extends React.Component {
     })
     .then(response => {
       this.container.classList.remove('submitting');
-      this.enableInputs();      
+      this.enableInputs();
       return response.json()
     })
     .catch(error => {
@@ -276,8 +222,8 @@ class Checkout extends React.Component {
     this.errorMessage = this.error.querySelector('.message');
     this.success = this.container.querySelector('.success');
 
-    if(this.stripe){  
-      this.registerCreditCardElements();    
+    if(this.stripe){
+      this.registerCreditCardElements();
     }
   }
 
@@ -320,7 +266,7 @@ class Checkout extends React.Component {
 
       if(result.token){
         this.stripeTokenHandler(result.token);
-      } 
+      }
       else {
         // Otherwise, un-disable inputs.
         this.container.classList.remove('submitting');
@@ -357,12 +303,12 @@ class Checkout extends React.Component {
     let cardZip = this.form.querySelector('#card-zip');
     cardZip.value = cardZip.value || e.target.value;
   }
- 
+
   render() {
     const cartTotal = cart.total();
     return (
       <section className={'checkout ' + (!cartTotal ? 'empty-cart' : '')}>
-        <CartItems />
+        <Cart />
         {/* <div className="h-space b-space wide text-right">
           <span className="text b-space">Total: ${cartTotal/100}</span>
         </div>*/}
@@ -411,7 +357,7 @@ class Checkout extends React.Component {
               <circle className="border" cx="42" cy="42" r="40" strokeLinecap="round" strokeWidth="4" stroke="#000" fill="none"></circle>
               <path className="checkmark" strokeLinecap="round" strokeLinejoin="round" d="M23.375 42.5488281 36.8840688 56.0578969 64.891932 28.0500338" strokeWidth="4" stroke="#000" fill="none"></path>
             </svg>
-          </div>          
+          </div>
           <h3 className="title" data-tid="elements_examples.success.title">Payment successful</h3>
           <p className="message">
             Mahalo for your support. A receipt will be sent to <span className="receipt-email"></span>.
@@ -433,7 +379,7 @@ class Checkout extends React.Component {
           <code className='b-space wide'>jhodara@gmail.com</code>
           <div className='text wide'>or call/text:</div>
           <code>808-268-2882</code>
-        </div>        
+        </div>
       </section>
     );
   }

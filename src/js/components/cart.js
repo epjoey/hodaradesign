@@ -1,88 +1,64 @@
-import pieces from './pieces';
+import React from 'react';
+import cart from '../services/cart';
+import pieces from '../services/pieces';
+import urls from '../services/urls';
+import Link from './Link';
+import Thumb from './Thumb';
 
-var KEY = 'cart';
 
-var cart = {
-  items: [],
-
-  init: function(){
-    const items = window.localStorage.getItem(KEY);
-    if(items){
-      cart.items = JSON.parse(items);
+class Cart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: cart.items
     }
-
-    window.onunload = () => cart.store();
-  },
-
-  store: function(){
-    localStorage.setItem(KEY, JSON.stringify(cart.items));
-  },
-
-  addItem: function(item){
-    let items = cart.items.slice()
-    items.push(item);
-    cart.items = items;
-    cart.store();
-  },
-
-  addPiece: function(piece){
-    let item = cart.findItem(piece.slug);
-    if(!item){
-      item = {slug: piece.slug, count: 1};
-    }
-    else {
-      item = Object.assign({}, item);
-      item.count += 1;
-    }
-    cart.addItem(item);
-  },
-
-  setCount: function(piece, count){
-    let item = cart.findItem(piece.slug);
-    let index = cart.items.indexOf(item);
-    item = Object.assign({}, item);
-    item.count = count;
-    cart.items.splice(index, 1, item);
-    return item;
-  },
-
-  removeItem: function(item){
-    let items = cart.items.slice()
-    var index = items.indexOf(item);
-    items.splice(index, 1);
-    cart.items = items;
-    cart.store();
-  },
-
-  removePiece: function(piece){
-    var item = cart.findItem(piece.slug);
-    if(item){
-      cart.removeItem(item);
-    }
-    else {
-      console.log('cart: trying to remove discluded piece');
-    }
-  },
-
-  findItem: function(slug){
-    return cart.items.find(item => item.slug === slug);
-  },
-
-  price: function(item, piece){
-    return piece.price;
-    // return (item && piece) ? (item.count * piece.price) : 0;
-  },
-
-  has: function(piece){
-    return !!cart.findItem(piece.slug);
-  },
-
-  total: function(){
-    return cart.items.length;
-    // return cart.items.reduce((total, item) => total + cart.price(item, pieces.findPiece(item.slug)), 0);
   }
-};
 
-cart.init();
+  removePiece(piece) {
+    piece.removeFromCart()
+    this.setState({
+      items: cart.items
+    });
+  }
 
-export default cart;
+  handleCountChange(event, piece) {
+    piece.setCount(event.target.value);
+  }
+
+  itemJSX(item) {
+    const piece = pieces.findPiece(item.slug);
+    const options = Array.from({length: 10}, (x,i) => {
+      return (<option key={i} value={i+1}>{i+1}</option>);
+    });
+    return (
+      <li key={item.slug} className="cart-item h-space b-space">
+        <Link href={urls.toPiece(piece)} className="cart-item-image">
+          <Thumb width="70" piece={piece.thumb} />
+        </Link>
+        <span className="cart-item-title text">{piece.title}</span>
+        <select className='cart-item-count'
+          value={item.count} 
+          onChange={(e) => this.handleCountChange(e, piece)}
+        >
+          {options}
+        </select>
+        <button onClick={() => this.removePiece(piece)}
+          className='btn cart-item-remove'
+        >Remove</button>        
+        <span className="text cart-item-price">{cart.price(item, piece)}</span>
+      </li>
+    );  
+  }
+
+  render() {
+    const cartItems = cart.items.map(item => this.itemJSX(item))
+    return (
+      <ul className='b-space'>
+        {cartItems}
+      </ul>
+    )
+  }
+}
+
+
+export default Cart;

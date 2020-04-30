@@ -1,5 +1,5 @@
 import React from 'react';
-import urls from './urls';
+
 
 class MainImage extends React.Component {
   render() {

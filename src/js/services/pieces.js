@@ -50,5 +50,5 @@ const pieces = [{
 
 pieces.findPiece = (slug) => pieces.find((piece) => piece.slug === slug);
 pieces.currentPiece = () => pieces.findPiece(urls.currentPath().split(urls.PIECE_BASE)[1]);
-pieces.piecePath = (piece) => urls.PIECE_BASE + piece.slug;
+
 export default pieces;

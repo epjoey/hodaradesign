@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Checkout from './js/components/Checkout';
-import cart from './js/components/cart';
-import pieces from './js/components/pieces';
+import cart from './js/services/cart';
+import pieces from './js/services/pieces';
+import urls from './js/services/urls';
 import Link from './js/components/Link';
 import MainImage from './js/components/MainImage';
 import Thumb from './js/components/Thumb';
-import urls from './js/components/urls';
+import Checkout from './js/views/Checkout';
+
 
 class Display extends React.Component {
   render() {
@@ -54,7 +55,7 @@ class Thumbs extends React.Component {
         lastPiece = pieces[i]
         thumbs.push(
           <li key={lastPiece.slug}>
-            <Link href={pieces.piecePath(lastPiece)}>
+            <Link href={urls.toPiece(lastPiece)}>
               <Thumb piece={lastPiece} />
             </Link>
           </li>

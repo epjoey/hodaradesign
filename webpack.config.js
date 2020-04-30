@@ -8,7 +8,8 @@ module.exports = {
   },
   devServer: {
     port: 8080,
-    historyApiFallback: true
+    historyApiFallback: true,
+    writeToDisk: true // wpds flat-out doesn't work without this.
   },
   module: {
     rules: [
