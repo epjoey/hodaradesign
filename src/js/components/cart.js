@@ -33,7 +33,7 @@ class Cart extends React.Component {
     return (
       <li key={item.slug} className="cart-item h-space b-space">
         <Link href={urls.toPiece(piece)} className="cart-item-image">
-          <Thumb width="70" piece={piece.thumb} />
+          <Thumb width="70" piece={piece} />
         </Link>
         <span className="cart-item-title text">{piece.title}</span>
         <select className='cart-item-count'

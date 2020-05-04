@@ -5,13 +5,6 @@
     <title>Hodara Design</title>
     <meta name="Description" content="HODARA DESIGN. Graphic and web deisgn by Joseph Hodara">
     <meta name="Keywords" content="design, hodara, joey, joey hodara, joseph hodara, graphic design, web design, AIGA, golden league, dawn patrol ">
-    <link rel="stylesheet" type="text/css" media="all" href="<?php $base ?>/css/site1.css" />
-    <link rel="stylesheet" href="<?php $base ?>/css/flade.css" type="text/css" media="screen" />
-    <link rel="icon" type="image/gif" href="<?php $base ?>/favicon.ico" />
-
-    <script type="text/javascript" src="<?php $base ?>/js/jquery-1.5.1.js"></script>
-    <script type="text/javascript" src="<?php $base ?>/js/jquery.easing.js"></script>
-
 
     <!--[if lt IE 7.]>
     <script defer type="text/javascript" src="<?php $base ?>/js/pngfix.js"></script>
@@ -26,7 +19,11 @@
         else $os = 'UnKnown';
 
         $current_folder = basename(dirname(__FILE__));
-        $base = $_SERVER['SERVER_PROTOCOL'].'://'. $_SERVER['HTTP_HOST'];
+        $host = $_SERVER['HTTP_HOST'];
+        $base = $_SERVER['SERVER_PROTOCOL'].'://'. $host;
+        if($host == 'localhost'){
+            $base = 'http://localhost/~jhodara/hodaradesign/old';
+        }
         $uri = $_SERVER["REQUEST_URI"];
         $self = $_SERVER['PHP_SELF'];
         $base_uri = $base . $uri;
@@ -40,6 +37,13 @@
         else $level = 'lower';
 
     ?>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php $base ?>/css/site1.css" />
+    <link rel="stylesheet" href="<?php $base ?>/css/flade.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/gif" href="<?php $base ?>/favicon.ico" />
+
+    <script type="text/javascript" src="<?php $base ?>/js/jquery-1.5.1.js"></script>
+    <script type="text/javascript" src="<?php $base ?>/js/jquery.easing.js"></script>
+
 </head>
 <body>
 

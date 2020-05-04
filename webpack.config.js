@@ -8,7 +8,11 @@ module.exports = {
   },
   devServer: {
     port: 8080,
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/art?\/$/, to: 'old' },
+      ]
+    },
     writeToDisk: true // wpds flat-out doesn't work without this.
   },
   module: {

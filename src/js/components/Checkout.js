@@ -1,6 +1,7 @@
 import React from 'react';
 import cart from '../services/cart';
-import Cart from '../components/cart';
+import Cart from './cart';
+
 
 class Checkout extends React.Component {
   constructor(props) {
@@ -313,24 +314,28 @@ class Checkout extends React.Component {
           <span className="text b-space">Total: ${cartTotal/100}</span>
         </div>*/}
         <div className="h-space b-space">
-          <span className="text wide b-space">Enter <b>shipping</b> info and your order will be shipped within <b>two weeks</b>. Mahalo!</span>
+          <span className="text wide b-space">Enter <b>shipping</b> info and your order will be shipped within two weeks. Mahalo!</span>
         </div>
+
         <form>
+
           <div className="fieldset">
             <input id="shipping-name" className="field" type="text" placeholder="Full Name" required="" autoComplete="name"
-              onBlur={(e) => this.handleShippingNameChange(e)}
+              // onBlur={(e) => this.handleShippingNameChange(e)}
             />
             <input id="shipping-line1" className="field" type="text" placeholder="Number and Street" required="" autoComplete="street" />
             <input id="shipping-city" className="field" type="text" placeholder="City" required="" autoComplete="city" />
             <input id="shipping-state" className="field third-width" type="text" placeholder="State" required="" autoComplete="state" />
             <input id="shipping-postal-code" className="field third-width" pattern="[0-9]{5}" type="text" placeholder="Zip" required="" autoComplete=""
-              onBlur={(e) => this.handleShippingPostalCodeChange(e)}
+              // onBlur={(e) => this.handleShippingPostalCodeChange(e)}
             />
             <input id="shipping-country" className="field third-width" type="text" placeholder="US" required="" autoComplete="" />
 
             <input id="email" className="field half-width-desktop" type="email" placeholder="Email" required="" autoComplete="email" />
-            {/* <input id="phone" className="field half-width-desktop" type="tel" placeholder="Phone" required="" autoComplete="tel" /> */}
+            <input id="phone" className="field half-width-desktop" type="tel" placeholder="Phone" required="" autoComplete="tel" />
           </div>
+
+
           {/* <div className="fieldset">
             <input id="card-name" className="field" type="text" placeholder="Name on card" required="" autoComplete="name" />
             <div id="card-number" className="field empty"></div>
@@ -338,10 +343,12 @@ class Checkout extends React.Component {
             <div id="card-cvc" className="field empty third-width"></div>
             <input id="card-zip" className="field empty third-width" placeholder="Zip" />
           </div> */}
+
           <button className='btn-submit' type="submit" onClick={(e) => this.handleSubmit(e) }>
             Place Order
-            <img className='stripe' src="../images/stripe.png"/>
+            <img className='stripe' src="/src/images/stripe.png"/>
           </button>
+
           <div className="error" role="alert">
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
               <path className="base" fill="#000" d="M8.5,17 C3.80557963,17 0,13.1944204 0,8.5 C0,3.80557963 3.80557963,0 8.5,0 C13.1944204,0 17,3.80557963 17,8.5 C17,13.1944204 13.1944204,17 8.5,17 Z"></path>
@@ -351,6 +358,7 @@ class Checkout extends React.Component {
           </div>
           <span className="shade"></span>
         </form>
+
         <div className="success">
           <div className="icon">
             <svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -368,12 +376,13 @@ class Checkout extends React.Component {
             </svg>
           </a>
         </div>
+
         <div className='h-space b-space'>
           <div className='text wide clear'>If this doesn't work, the artist can be reached at:</div>
           <code className='b-space wide'>
             Joseph Hodara<br/>
-            326 Columbia st<br/>
-            Santa Cruz, CA 95060
+            1268 Pohuli way<br/>
+            Makawao, HI, 96768
           </code>
           <div className='text wide'>or email:</div>
           <code className='b-space wide'>jhodara@gmail.com</code>
