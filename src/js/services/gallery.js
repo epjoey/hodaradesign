@@ -1,8 +1,9 @@
-import urls from './urls';
+import paths from './paths';
 
 const imagePath = '/src/images/art/';
 const thumbPath = imagePath + 'thumbs/';
-const pieces = [{
+
+const gallery = [{
   slug: 'mavs',
   title: 'Mavs',
   text: '6" x 8" Linocut',
@@ -15,14 +16,14 @@ const pieces = [{
   text: '8" x 8" woodcut with colored pencil',
   thumb: thumbPath + 'kualeho.jpg',
   images: ['//i.imgur.com/rkopfkV.png', '//i.imgur.com/hAGLR84.png'],
-  price: '10lbs of homegrown veggies, delivered',
+  price: '4lbs of homegrown food',
 },{
   slug: 'chopu',
   title: 'Chopu',
   text: '5" x 7" Linocut',
   thumb: thumbPath + 'chopu.jpg',
   images: [imagePath + 'chopu.jpg'],
-  price: '1 work of art, delivered',
+  price: '1 work of art',
 },{
   slug: 'aloha',
   title: 'Aloha Ka Pu\'uwai',
@@ -48,7 +49,6 @@ const pieces = [{
 // }
 ];
 
-pieces.findPiece = (slug) => pieces.find((piece) => piece.slug === slug);
-pieces.currentPiece = () => pieces.findPiece(urls.currentPath().split(urls.PIECE_BASE)[1]);
+gallery.findPiece = (slug) => gallery.find((piece) => piece.slug === slug);
 
-export default pieces;
+export default gallery;

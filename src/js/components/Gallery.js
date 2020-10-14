@@ -1,8 +1,21 @@
 import React from 'react';
-import pieces from '../services/pieces';
-import urls from '../services/urls';
+import gallery from '../services/gallery';
+import paths from '../services/paths';
+import cart from '../services/cart';
 import Link from './Link';
 import Thumb from './Thumb';
+
+
+class Gallery extends React.Component {
+  render() {
+    return (
+      <div className="shop">
+        <Display piece={this.props.piece} />
+        <Thumbs />
+      </div>
+    );
+  }
+}
 
 
 class Display extends React.Component {
@@ -43,16 +56,16 @@ class Thumbs extends React.Component {
     let i = 0;
     let thumbs = [];
     let lastPiece = null;
-    while(i < pieces.length){
+    while(i < gallery.length){
       if(i > 0 && i % 3 === 0 && lastPiece){
         thumbs.push(<br key={i} />)
         lastPiece = null;
       }
       else {
-        lastPiece = pieces[i]
+        lastPiece = gallery[i]
         thumbs.push(
           <li key={lastPiece.slug}>
-            <Link href={urls.toPiece(lastPiece)}>
+            <Link href={paths.toPiece(lastPiece)}>
               <Thumb piece={lastPiece} />
             </Link>
           </li>
@@ -63,7 +76,7 @@ class Thumbs extends React.Component {
 
     thumbs.push(
       <li key='see-more'>
-        <a href="/art/">
+        <a href="/art">
           See more
         </a>
       </li>
@@ -76,17 +89,4 @@ class Thumbs extends React.Component {
 }
 
 
-class Shop extends React.Component {
-  render() {
-    const piece = pieces.currentPiece() || pieces[0];
-    return (
-      <div className="shop">
-        <Display piece={piece} />
-        <Thumbs />
-      </div>
-    );
-  }
-}
-
-
-export default Shop;
+export default Gallery;

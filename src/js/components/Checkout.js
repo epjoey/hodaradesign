@@ -1,124 +1,124 @@
 import React from 'react';
 import cart from '../services/cart';
-import Cart from './cart';
+import Cart from './Cart';
 
 
 class Checkout extends React.Component {
   constructor(props) {
     super(props)
-    if('Stripe' in window){
-      this.stripe = Stripe('pk_test_Mnj7lYWHKA6SmSFVz6j8j70H');
-    }
+    // if('Stripe' in window){
+    //   this.stripe = Stripe('pk_test_Mnj7lYWHKA6SmSFVz6j8j70H');
+    // }
   }
 
-  registerCreditCardElements() {
-    return;
-    var elements = this.stripe.elements({
-      // Stripe's examples are localized to specific languages, but if
-      // you wish to have Elements automatically detect your user's locale,
-      // use `locale: 'auto'` instead.
-      locale: window.__exampleLocale,
-    });
+  // registerCreditCardElements() {
+  //   return;
+  //   var elements = this.stripe.elements({
+  //     // Stripe's examples are localized to specific languages, but if
+  //     // you wish to have Elements automatically detect your user's locale,
+  //     // use `locale: 'auto'` instead.
+  //     locale: window.__exampleLocale,
+  //   });
 
-    var elementStyles = {
-      base: {
-        color: '#fff',
-        fontWeight: 600,
-        fontSize: '16px',
+    // var elementStyles = {
+    //   base: {
+    //     color: '#fff',
+    //     fontWeight: 600,
+    //     fontSize: '16px',
 
-        ':focus': {
-          color: '#fff',
-        },
+    //     ':focus': {
+    //       color: '#fff',
+    //     },
 
-        '::placeholder': {
-          color: '#cfd7df',
-        },
+    //     '::placeholder': {
+    //       color: '#cfd7df',
+    //     },
 
-        ':focus::placeholder': {
-          color: '#cfd7df',
-        },
-      },
-      invalid: {
-        color: '#fff',
-        ':focus': {
-          color: '#FA755A',
-        },
-        '::placeholder': {
-          color: '#FFCCA5',
-        },
-      },
-    };
+    //     ':focus::placeholder': {
+    //       color: '#cfd7df',
+    //     },
+    //   },
+    //   invalid: {
+    //     color: '#fff',
+    //     ':focus': {
+    //       color: '#FA755A',
+    //     },
+    //     '::placeholder': {
+    //       color: '#FFCCA5',
+    //     },
+    //   },
+    // };
 
-    var elementClasses = {
-      focus: 'focus',
-      empty: 'empty',
-      invalid: 'invalid',
-    };
+    // var elementClasses = {
+    //   focus: 'focus',
+    //   empty: 'empty',
+    //   invalid: 'invalid',
+    // };
 
-    var cardNumber = elements.create('cardNumber', {
-      style: elementStyles,
-      classes: elementClasses,
-    });
-    cardNumber.mount('#card-number');
+    // var cardNumber = elements.create('cardNumber', {
+    //   style: elementStyles,
+    //   classes: elementClasses,
+    // });
+    // cardNumber.mount('#card-number');
 
-    var cardExpiry = elements.create('cardExpiry', {
-      style: elementStyles,
-      classes: elementClasses,
-    });
-    cardExpiry.mount('#card-expiry');
+    // var cardExpiry = elements.create('cardExpiry', {
+    //   style: elementStyles,
+    //   classes: elementClasses,
+    // });
+    // cardExpiry.mount('#card-expiry');
 
-    var cardCvc = elements.create('cardCvc', {
-      style: elementStyles,
-      classes: elementClasses,
-    });
-    cardCvc.mount('#card-cvc');
+    // var cardCvc = elements.create('cardCvc', {
+    //   style: elementStyles,
+    //   classes: elementClasses,
+    // });
+    // cardCvc.mount('#card-cvc');
 
-    // Listen for errors from each Element, and show error messages in the UI.
-    let savedErrors = {};
-    elements.forEach((element, idx) => {
-      element.on('change', event => {
-        if(event.error){
-          this.error.classList.add('visible');
-          savedErrors[idx] = event.error.message;
-          this.errorMessage.innerText = event.error.message;
-        } else {
-          savedErrors[idx] = null;
+    // // Listen for errors from each Element, and show error messages in the UI.
+    // let savedErrors = {};
+    // elements.forEach((element, idx) => {
+    //   element.on('change', event => {
+    //     if(event.error){
+    //       this.error.classList.add('visible');
+    //       savedErrors[idx] = event.error.message;
+    //       this.errorMessage.innerText = event.error.message;
+    //     } else {
+    //       savedErrors[idx] = null;
 
-          // Loop over the saved errors and find the first one, if any.
-          var nextError = Object.keys(savedErrors)
-            .sort()
-            .reduce(function(maybeFoundError, key) {
-              return maybeFoundError || savedErrors[key];
-            }, null);
+    //       // Loop over the saved errors and find the first one, if any.
+    //       var nextError = Object.keys(savedErrors)
+    //         .sort()
+    //         .reduce(function(maybeFoundError, key) {
+    //           return maybeFoundError || savedErrors[key];
+    //         }, null);
 
-          if(nextError){
-            // Now that they've fixed the current error, show another one.
-            this.errorMessage.innerText = nextError;
-          } else {
-            // The user fixed the last error; no more errors.
-            this.error.classList.remove('visible');
-          }
-        }
-      });
-    });
+    //       if(nextError){
+    //         // Now that they've fixed the current error, show another one.
+    //         this.errorMessage.innerText = nextError;
+    //       } else {
+    //         // The user fixed the last error; no more errors.
+    //         this.error.classList.remove('visible');
+    //       }
+    //     }
+    //   });
+    // });
 
-    const form = this.form;
-    window.pop = function(){
-      form.querySelector('#shipping-name').value = 'Tester McTester';
-      form.querySelector('#shipping-line1').value = '1269 Pohuli way';
-      form.querySelector('#shipping-city').value = 'Maktown';
-      form.querySelector('#shipping-state').value = 'HI';
-      form.querySelector('#shipping-postal-code').value = '99999';
-      form.querySelector('#shipping-country').value = 'US';
-      form.querySelector('#email').value = 'jhodara@gmail.com';
-      // form.querySelector('#phone').value = '8082682882';
-      form.querySelector('#card-name').value = 'Tester McTesterson';
-      form.querySelector('#card-zip').value = '222222';
-    };
+  //   const form = this.form;
+  //   window.pop = function(){
+  //     form.querySelector('#shipping-name').value = 'Tester McTester';
+  //     form.querySelector('#shipping-line1').value = '1269 Pohuli way';
+  //     form.querySelector('#shipping-city').value = 'Maktown';
+  //     form.querySelector('#shipping-state').value = 'HI';
+  //     form.querySelector('#shipping-postal-code').value = '99999';
+  //     form.querySelector('#shipping-country').value = 'US';
+  //     form.querySelector('#email').value = 'jhodara@gmail.com';
+  //     // form.querySelector('#phone').value = '8082682882';
+  //     form.querySelector('#card-name').value = 'Tester McTesterson';
+  //     form.querySelector('#card-zip').value = '222222';
+  //   };
 
-    // Save elements to class so we can access them on submit.
-    this.elements = elements;
-  }
+  //   // Save elements to class so we can access them on submit.
+  //   this.elements = elements;
+  // }
 
   enableInputs() {
     Array.prototype.forEach.call(
@@ -153,68 +153,68 @@ class Checkout extends React.Component {
     submit.remove();
   }
 
-  stripeTokenHandler(token) {
-    const form = this.form;
+  // stripeTokenHandler(token) {
+  //   const form = this.form;
 
-    // Submit the form
-    const shippingName = form.querySelector('#shipping-name');
-    const shippingLine1 = form.querySelector('#shipping-line1');
-    const shippingCity = form.querySelector('#shipping-city');
-    const shippingState = form.querySelector('#shipping-state');
-    const shippingPostalCode = form.querySelector('#shipping-postal-code');
-    const shippingCountry = form.querySelector('#shipping-country');
-    const email = form.querySelector('#email');
-    const phone = form.querySelector('#phone');
+  //   // Submit the form
+  //   const shippingName = form.querySelector('#shipping-name');
+  //   const shippingLine1 = form.querySelector('#shipping-line1');
+  //   const shippingCity = form.querySelector('#shipping-city');
+  //   const shippingState = form.querySelector('#shipping-state');
+  //   const shippingPostalCode = form.querySelector('#shipping-postal-code');
+  //   const shippingCountry = form.querySelector('#shipping-country');
+  //   const email = form.querySelector('#email');
+  //   const phone = form.querySelector('#phone');
 
-    const data = {
-      stripeToken: token.id,
-      shippingName: shippingName ? shippingName.value : undefined,
-      shippingLine1: shippingLine1 ? shippingLine1.value : undefined,
-      shippingCity: shippingCity ? shippingCity.value : undefined,
-      shippingState: shippingState ? shippingState.value : undefined,
-      shippingPostalCode: shippingPostalCode ? shippingPostalCode.value : undefined,
-      shippingCountry: shippingCountry ? shippingCountry.value : undefined,
-      email: email ? email.value : undefined,
-      phone: phone ? phone.value : undefined,
-      amount: cart.total(),
-      description: 'Some badass art'
-    };
+  //   const data = {
+  //     stripeToken: token.id,
+  //     shippingName: shippingName ? shippingName.value : undefined,
+  //     shippingLine1: shippingLine1 ? shippingLine1.value : undefined,
+  //     shippingCity: shippingCity ? shippingCity.value : undefined,
+  //     shippingState: shippingState ? shippingState.value : undefined,
+  //     shippingPostalCode: shippingPostalCode ? shippingPostalCode.value : undefined,
+  //     shippingCountry: shippingCountry ? shippingCountry.value : undefined,
+  //     email: email ? email.value : undefined,
+  //     phone: phone ? phone.value : undefined,
+  //     amount: cart.total(),
+  //     description: 'Some badass art'
+  //   };
 
-    let formData = new FormData();
-    Object.keys(data).forEach(key => {
-      formData.append(key, data[key]);
-    });
+  //   let formData = new FormData();
+  //   Object.keys(data).forEach(key => {
+  //     formData.append(key, data[key]);
+  //   });
 
-    window.fetch('/shop/charge.php', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      this.container.classList.remove('submitting');
-      this.enableInputs();
-      return response.json()
-    })
-    .catch(error => {
-      console.error('Error:', error)
-      this.errorMessage.innerText = 'An error has occured';
-      this.error.classList.add('visible');
-    })
-    .then(charge => {
-      if(charge.stripeRequestError){
-        this.errorMessage.innerText = charge.stripeRequestError;
-        this.error.classList.add('visible');
-      }
-      else if(charge.status = "succeeded"){
-        // If we received a token, show the token ID.
-        this.container.classList.add('submitted');
-        this.success.querySelector('.receipt-email').innerText = email.value;
-      }
-      else {
-        this.errorMessage.innerText = charge.failure_message;
-        this.error.classList.add('visible');
-      }
-    })
-  }
+  //   window.fetch('/shop/charge.php', {
+  //     method: 'POST',
+  //     body: formData
+  //   })
+  //   .then(response => {
+  //     this.container.classList.remove('submitting');
+  //     this.enableInputs();
+  //     return response.json()
+  //   })
+  //   .catch(error => {
+  //     console.error('Error:', error)
+  //     this.errorMessage.innerText = 'An error has occured';
+  //     this.error.classList.add('visible');
+  //   })
+  //   .then(charge => {
+  //     if(charge.stripeRequestError){
+  //       this.errorMessage.innerText = charge.stripeRequestError;
+  //       this.error.classList.add('visible');
+  //     }
+  //     else if(charge.status = "succeeded"){
+  //       // If we received a token, show the token ID.
+  //       this.container.classList.add('submitted');
+  //       this.success.querySelector('.receipt-email').innerText = email.value;
+  //     }
+  //     else {
+  //       this.errorMessage.innerText = charge.failure_message;
+  //       this.error.classList.add('visible');
+  //     }
+  //   })
+  // }
 
   componentDidMount() {
     this.container = document.querySelector('.checkout');
@@ -223,9 +223,9 @@ class Checkout extends React.Component {
     this.errorMessage = this.error.querySelector('.message');
     this.success = this.container.querySelector('.success');
 
-    if(this.stripe){
-      this.registerCreditCardElements();
-    }
+    // if(this.stripe){
+    //   this.registerCreditCardElements();
+    // }
   }
 
   handleSubmit(e) {
@@ -253,27 +253,64 @@ class Checkout extends React.Component {
     this.disableInputs();
 
     // Gather additional customer data we may have collected in our form.
-    var name = this.form.querySelector('#card-name');
-    var zip = this.form.querySelector('#card-zip');
-    var additionalData = {
-      name: name ? name.value : undefined,
-      address_zip: zip ? zip.value : undefined,
-    };
+    var name = this.form.querySelector('#shipping-name').value;
+    var line1 = this.form.querySelector('#shipping-line1').value;
+    var city = this.form.querySelector('#shipping-city').value;
+    var state = this.form.querySelector('#shipping-state').value;
+    var postalCode = this.form.querySelector('#shipping-postal-code').value;
+    var email = this.form.querySelector('#email').value;
+    //var zip = this.form.querySelector('#card-zip');
+    // var additionalData = {
+    //   name: name ? name.value : undefined,
+    //   address_zip: zip ? zip.value : undefined,
+    // };
 
     // Use Stripe.js to create a token. We only need to pass in one Element
     // from the Element group in order to create a token. We can also pass
     // in the additional customer data we collected in our form.
-    this.stripe.createToken(this.elements[0], additionalData).then(result => {
+    // var elements = this.elements || [];
+    // var element = elements[0] || null;
+    // this.stripe.createToken(element, additionalData).then(result => {
 
-      if(result.token){
-        this.stripeTokenHandler(result.token);
+    //   if(result.token){
+    //     this.stripeTokenHandler(result.token);
+    //   }
+    //   else {
+    //     // Otherwise, un-disable inputs.
+    //     this.container.classList.remove('submitting');
+    //     this.enableInputs();
+    //   }
+    // });
+
+    window.fetch('/api/create_customer', {
+      method: 'POST',
+      body: JSON.stringify({
+        'name': name,
+        'email': email,
+        'line1': line1,
+        'city': city,
+        'state': state,
+        'postal_code': postalCode
+      })
+    }).then(response => {
+      if (response.status !== 200) {
+        return this.handleError(response);
       }
-      else {
-        // Otherwise, un-disable inputs.
-        this.container.classList.remove('submitting');
-        this.enableInputs();
-      }
+      this.container.classList.remove('submitting');
+      this.container.classList.add('submitted');
+      this.success.querySelector('.receipt-email').innerText = email;
+      this.enableInputs();
+    }).catch(error => {
+      handleError(error);
     });
+  };
+
+  handleError(response) {
+    console.error('Error response:', response);
+    this.errorMessage.innerText = 'An error has occured';
+    this.error.classList.add('visible');   
+    this.enableInputs();
+    this.container.classList.remove('submitting');
   };
 
   reset() {
@@ -282,9 +319,9 @@ class Checkout extends React.Component {
     this.form.reset();
 
     // Clear each Element.
-    this.elements.forEach(function(element) {
-      element.clear();
-    });
+    // this.elements.forEach(function(element) {
+    //   element.clear();
+    // });
 
     // Reset error state as well.
     this.error.classList.remove('visible');
@@ -294,16 +331,16 @@ class Checkout extends React.Component {
     this.container.classList.remove('submitted');
   }
 
-  // Autocomplete duplicate fields.
-  handleShippingNameChange(e) {
-    let cardName = this.form.querySelector('#card-name');
-    cardName.value = cardName.value || e.target.value;
-  }
+  // // Autocomplete duplicate fields.
+  // handleShippingNameChange(e) {
+  //   let cardName = this.form.querySelector('#card-name');
+  //   cardName.value = cardName.value || e.target.value;
+  // }
 
-  handleShippingPostalCodeChange(e) {
-    let cardZip = this.form.querySelector('#card-zip');
-    cardZip.value = cardZip.value || e.target.value;
-  }
+  // handleShippingPostalCodeChange(e) {
+  //   let cardZip = this.form.querySelector('#card-zip');
+  //   cardZip.value = cardZip.value || e.target.value;
+  // }
 
   render() {
     const cartTotal = cart.total();
@@ -331,7 +368,7 @@ class Checkout extends React.Component {
             />
             <input id="shipping-country" className="field third-width" type="text" placeholder="US" required="" autoComplete="" />
 
-            <input id="email" className="field half-width-desktop" type="email" placeholder="Email" required="" autoComplete="email" />
+            <input id="email" className="field half-width-desktop" type="email" placeholder="Email" required="{true}" autoComplete="email" />
             <input id="phone" className="field half-width-desktop" type="tel" placeholder="Phone" required="" autoComplete="tel" />
           </div>
 
@@ -366,7 +403,7 @@ class Checkout extends React.Component {
               <path className="checkmark" strokeLinecap="round" strokeLinejoin="round" d="M23.375 42.5488281 36.8840688 56.0578969 64.891932 28.0500338" strokeWidth="4" stroke="#000" fill="none"></path>
             </svg>
           </div>
-          <h3 className="title" data-tid="elements_examples.success.title">Payment successful</h3>
+          <h3 className="title" data-tid="elements_examples.success.title">Successful!</h3>
           <p className="message">
             Mahalo for your support. A receipt will be sent to <span className="receipt-email"></span>.
           </p>
@@ -378,15 +415,13 @@ class Checkout extends React.Component {
         </div>
 
         <div className='h-space b-space'>
-          <div className='text wide clear'>If this doesn't work, the artist can be reached at:</div>
+          <div className='text wide clear'>artist info:</div>
           <code className='b-space wide'>
             Joseph Hodara<br/>
             1268 Pohuli way<br/>
             Makawao, HI, 96768
           </code>
-          <div className='text wide'>or email:</div>
           <code className='b-space wide'>jhodara@gmail.com</code>
-          <div className='text wide'>or call/text:</div>
           <code>808-268-2882</code>
         </div>
       </section>

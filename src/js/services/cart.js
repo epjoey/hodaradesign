@@ -77,7 +77,7 @@ var cart = {
 
   total: function(){
     return cart.items.length;
-    // return cart.items.reduce((total, item) => total + cart.price(item, pieces.findPiece(item.slug)), 0);
+    // return cart.items.reduce((total, item) => total + cart.price(item, gallery.findPiece(item.slug)), 0);
   }
 };
 

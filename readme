@@ -1,1 +1,6 @@
+On dev:
 npm start
+npm run server
+
+
+On production:
