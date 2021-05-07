@@ -152,7 +152,7 @@ height:464px
 #main2 {width: 640px; margin-left:282px;}
 #main3, #main5 {width: 650px; margin-left:282px;}
 
-#main1 h2, #main2 h2, #main3 h2, #main4 h2, #main5 h2 {font-size:16px; font-weight:normal; padding:5px; margin-top:0px; margin-bottom:6px; display:inline-block}
+#main1 h2, #main2 h2, #main3 h2, #main4 h2, #main5 h2 {font-size:18px; font-weight:normal; padding:5px; margin-top:0px; margin-bottom:6px; display:inline-block}
 #main1 p, #main1 ul li,  #main2 p, #main3 p, #main4 p, #main5 p { width:450px;}
 #main1 .small, #main2 .small, #main3 .small, #main4 .small, #main5 .small { font-size:11px; color:#999;}
 
