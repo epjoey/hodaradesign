@@ -1,8 +1,7 @@
-const http = require('http');
+const express = require('express');
 const stripe = require('stripe')('sk_test_wGHvREvf3V8LMGUD5njU2OFU');
-const querystring = require('querystring');
 
-const PORT = 8081;
+const app = express();
 
 let createCustomer = function(req, res){
   if(req.method !== 'POST'){
@@ -55,13 +54,21 @@ let createCustomer = function(req, res){
   });
 };
 
-http.createServer(function (req, res) {
-  if(req.url === '/api/create_customer'){
-    createCustomer(req, res);
-  }  
-  else {
-    res.end();
-  }
-}).listen(PORT, function(){
-  console.log('Server is running on port ' + PORT + '...');
+
+app.use(express.static(__dirname + '/dist'));
+
+app.listen(8080, () => {
+  console.log("Application started and Listening on port 8080");
+});
+
+app.get("/dist/*", (req, res, next) => {
+  return next();
+});
+
+app.get("/api/create-customer", (req, res) => {
+  createCustomer(req, res);
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + '/index.html');
 });

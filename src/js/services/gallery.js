@@ -1,6 +1,6 @@
 import paths from './paths';
 
-const imagePath = '/src/images/art/';
+const imagePath = '/images/art/';
 const thumbPath = imagePath + 'thumbs/';
 
 const gallery = [{

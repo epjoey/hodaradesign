@@ -383,7 +383,7 @@ class Checkout extends React.Component {
 
           <button className='btn-submit' type="submit" onClick={(e) => this.handleSubmit(e) }>
             Place Order
-            <img className='stripe' src="/src/images/stripe.png"/>
+            <img className='stripe' src="images/stripe.png"/>
           </button>
 
           <div className="error" role="alert">

@@ -4,3 +4,5 @@ npm run server
 
 
 On production:
+npm run build
+npm run server
