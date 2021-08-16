@@ -1,8 +1,11 @@
 Make sure you apache document root is "/Users/jhodara/Sites/hodaradesign":
 `sudo nano /etc/apache2/httpd.conf`
 
-cd shop
-npm start
+On dev:
 npm run dev
+npm run server
 
-load `localhost`
+
+On production:
+npm run build
+npm run server
