@@ -282,7 +282,7 @@ class Checkout extends React.Component {
     //   }
     // });
 
-    window.fetch('/api/create_customer', {
+    window.fetch('/api/create-customer', {
       method: 'POST',
       body: JSON.stringify({
         'name': name,

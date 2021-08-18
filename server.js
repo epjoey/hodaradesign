@@ -65,7 +65,7 @@ app.get("/dist/*", (req, res, next) => {
   return next();
 });
 
-app.get("/api/create-customer", (req, res) => {
+app.post("/api/create-customer", (req, res) => {
   createCustomer(req, res);
 });
 
