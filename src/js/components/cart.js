@@ -9,16 +9,10 @@ import Thumb from './Thumb';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      items: cart.items
-    }
   }
 
   removePiece(piece) {
     piece.removeFromCart()
-    this.setState({
-      items: cart.items
-    });
   }
 
   handleCountChange(event, piece) {

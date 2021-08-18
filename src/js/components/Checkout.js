@@ -300,6 +300,9 @@ class Checkout extends React.Component {
       this.container.classList.add('submitted');
       this.success.querySelector('.receipt-email').innerText = email;
       this.enableInputs();
+
+      // Empty the cart.
+      cart.clear();
     }).catch(error => {
       handleError(error);
     });
@@ -383,7 +386,7 @@ class Checkout extends React.Component {
 
           <button className='btn-submit' type="submit" onClick={(e) => this.handleSubmit(e) }>
             Place Order
-            <img className='stripe' src="images/stripe.png"/>
+            <img className='stripe' src="/images/stripe.png"/>
           </button>
 
           <div className="error" role="alert">
