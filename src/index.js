@@ -29,12 +29,9 @@ class Index extends React.Component {
       self.setState({
         path: path
       });
-      console.log(path);
-      console.log(window.location.path);
       window.scrollTo(0, 0);
     };
 
-    console.log(location.path);
 
     // This is hacky but has to be here...i think.
     var pieceProto = {
