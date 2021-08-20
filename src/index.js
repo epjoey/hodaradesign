@@ -32,21 +32,24 @@ class Index extends React.Component {
       window.scrollTo(0, 0);
     };
 
+    this.updateCart = () => {
+      this.setState({ cartTotal: cart.total() });
+    };
 
     // This is hacky but has to be here...i think.
     var pieceProto = {
       addToCart: function(){
         cart.addPiece(this);
-        self.setState({ cartTotal: cart.total() });
+        self.updateCart();
         Link.goTo('/checkout/');
       },
       removeFromCart: function(){
         cart.removePiece(this);
-        self.setState({ cartTotal: cart.total() });
+        self.updateCart();
       },
       setCount: function(count){
         cart.setCount(this, count);
-        self.setState({ cartTotal: cart.total() });
+        self.updateCart();
       },
       isInCart: function(){
         return cart.has(this);
@@ -78,7 +81,7 @@ class Index extends React.Component {
           <Gallery piece={galleryPiece}/> :
 
           path === paths.checkout.index ?
-          <Checkout /> :
+          <Checkout onSuccess={this.updateCart} /> :
 
           (<div className='text wide text-center v-space display'>404 Not found!</div>)
         }

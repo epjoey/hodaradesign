@@ -296,13 +296,16 @@ class Checkout extends React.Component {
       if (response.status !== 200) {
         return this.handleError(response);
       }
+      // Empty the cart.
+      cart.clear();
+      // Rerender everything.
+      this.props.onSuccess();
+      // Now add/remove classnames.
       this.container.classList.remove('submitting');
       this.container.classList.add('submitted');
       this.success.querySelector('.receipt-email').innerText = email;
       this.enableInputs();
 
-      // Empty the cart.
-      cart.clear();
     }).catch(error => {
       handleError(error);
     });
