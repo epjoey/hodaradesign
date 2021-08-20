@@ -424,8 +424,8 @@ class Checkout extends React.Component {
           <div className='text wide clear'>artist info:</div>
           <code className='b-space wide'>
             Joseph Hodara<br/>
-            1268 Pohuli way<br/>
-            Makawao, HI, 96768
+            2835 W Lelehuna Pl<br/>
+            Haiku, HI, 96708
           </code>
           <code className='b-space wide'>jhodara@gmail.com</code>
           <code>808-268-2882</code>
