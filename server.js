@@ -6,21 +6,35 @@ const app = express();
 
 app.use(express.static(__dirname + '/dist'));
 
+// Somebody bought something!
 app.post("/api/create-customer", (req, res) => {
   api.createCustomer(req, res);
 });
 
-const ROUTES = [
+
+// Redirect these back to index. TODO: use nginx instead?
+const LEGACY_ROUTES = [
+  '/shop',
+  '/art'
+];
+
+LEGACY_ROUTES.forEach(route => {
+  app.get(route, (req, res) => {
+    res.redirect('/');
+  });
+});
+
+// Handle every app route with index.html, which will contain
+// a script tag to bundle.js and perform client-side routing.
+const APP_ROUTES = [
   '/',
   '/piece/*',
   '/checkout'
 ];
 
-// handle every other route with index.html, which will contain
-// a script tag to your application's JavaScript file(s).
-ROUTES.forEach(route => {
-  app.get(route, function (request, response, next) {
-    response.sendFile(path.resolve(__dirname, 'index.html'));
+APP_ROUTES.forEach(route => {
+  app.get(route, (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'index.html'));
   });
 });
 
