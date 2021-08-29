@@ -5,6 +5,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/static'));
 
 // Somebody bought something!
 app.post("/api/create-customer", (req, res) => {
@@ -19,9 +20,7 @@ const LEGACY_ROUTES = [
 ];
 
 LEGACY_ROUTES.forEach(route => {
-  app.get(route, (req, res) => {
-    res.redirect('/');
-  });
+  app.get(route, (req, res) => res.redirect('/'));
 });
 
 // Handle every app route with index.html, which will contain

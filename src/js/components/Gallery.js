@@ -74,14 +74,6 @@ class Thumbs extends React.Component {
       }
     };
 
-    thumbs.push(
-      <li key='see-more'>
-        <a href="/art">
-          See more
-        </a>
-      </li>
-    );
-
     return (
       <ul className="thumbs">{thumbs}</ul>
     );

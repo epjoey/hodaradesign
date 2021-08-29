@@ -4,10 +4,10 @@
   "description": "hodara design react",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack-dev-server --progress --color",
-    "watch": "nodemon ./server.js",
+    "start": "node ./server.js",
+    "nodemon": "nodemon ./server.js",
     "build": "webpack --mode production",
-    "start": "node ./server.js"
+    "watch": "watch 'webpack --mode development' ./src"
   },
   "keywords": [],
   "author": "Joseph Hodara",
@@ -19,11 +19,12 @@
     "babel-loader": "^8.1.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.2.1",
+    "watch": "^1.0.2",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "stripe": "^8.82.0"
