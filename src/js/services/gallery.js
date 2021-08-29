@@ -1,7 +1,7 @@
 import paths from './paths';
 
 const imagePath = '/images/art/';
-const thumbPath = imagePath + 'thumbs/';
+const thumbPath = '/thumbnail/';
 
 const gallery = [{
   slug: 'mavs',
@@ -15,7 +15,7 @@ const gallery = [{
   title: 'Kualeho',
   text: '8" x 8" woodcut with colored pencil',
   thumb: thumbPath + 'kualeho.jpg',
-  images: ['//i.imgur.com/rkopfkV.png', '//i.imgur.com/hAGLR84.png'],
+  images: [imagePath + 'kualeho.jpg', '//i.imgur.com/hAGLR84.png'],
   price: '4lbs of homegrown food',
 },{
   slug: 'chopu',
@@ -29,7 +29,7 @@ const gallery = [{
   title: 'Aloha Ka Pu\'uwai',
   text: '8" x 10" Linocut',
   thumb: thumbPath + 'aloha.jpg',
-  images: ['//i.imgur.com/sP2dmcM.jpg'],
+  images: [imagePath + 'aloha.jpg'],
   price: '5 beach cleanups',
 },{
   slug: 'noriega',
