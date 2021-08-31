@@ -240,8 +240,6 @@ body {
   margin: 5px;
   display: inline-block;
   vertical-align: top;
-  height: 50px;
-  width: 54px;
   overflow: hidden;
   border-radius: 2px;
   height: 90px;
@@ -252,8 +250,8 @@ body {
 .thumbs li a {
   display: inline-block;
   line-height: 70px;
-  margin-top:-10px;
-  margin-left:-10px;
+  margin-top:-15px;
+  margin-left:-15px;
 }
 
 

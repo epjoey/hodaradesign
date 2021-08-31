@@ -1,6 +1,6 @@
 import React from 'react';
+import gallery from '../../../gallery';
 import cart from '../services/cart';
-import gallery from '../services/gallery';
 import paths from '../services/paths';
 import Link from './Link';
 import Thumb from './Thumb';
@@ -20,7 +20,7 @@ class Cart extends React.Component {
   }
 
   itemJSX(item) {
-    const piece = gallery.findPiece(item.slug);
+    const piece = gallery.find((piece) => piece.slug === item.slug);
     const options = Array.from({length: 10}, (x,i) => {
       return (<option key={i} value={i+1}>{i+1}</option>);
     });

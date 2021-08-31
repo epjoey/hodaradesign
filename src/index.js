@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import gallery from '../gallery';
 import cart from './js/services/cart';
-import gallery from './js/services/gallery';
 import paths from './js/services/paths';
 import Gallery from './js/components/Gallery';
 import Checkout from './js/components/Checkout';
@@ -67,7 +67,8 @@ class Index extends React.Component {
     // Start gallery on slug in url, or first piece.
     let galleryPiece;
     if(path.startsWith(paths.gallery.index)){
-      galleryPiece = gallery.findPiece(path.split(paths.gallery.index)[1]);
+      let slug = path.split(paths.gallery.index)[1];
+      galleryPiece = gallery.find((piece) => piece.slug === slug);
     }
     else if (path === '/') {
       galleryPiece = gallery[0];

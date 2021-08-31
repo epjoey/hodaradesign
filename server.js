@@ -16,7 +16,7 @@ app.post("/api/create-customer", (req, res) => {
 
 // Shrink the thumbnails!
 app.get("/thumbnail/*", (req, res) => {
-  const THUMB_WIDTH = 140;
+  const THUMB_WIDTH = 150;
   let imagePath = req.path.replace('/thumbnail', 'static/images/art');
   imagePath = path.join(__dirname, imagePath);
   let readStream = fs.createReadStream(imagePath);

@@ -1,5 +1,5 @@
 import React from 'react';
-import gallery from '../services/gallery';
+import gallery from '../../../gallery';
 import paths from '../services/paths';
 import cart from '../services/cart';
 import Link from './Link';
@@ -28,7 +28,7 @@ class Display extends React.Component {
     return (
       <div className='display'>
         <div className="display-image b-space">
-          <img src={this.props.piece.images[0]} />
+          <img src={'/images/art/' + this.props.piece.image} />
         </div>
         <div className="text wide text-center b-space">
           {this.props.piece.title}
