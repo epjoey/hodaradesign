@@ -37,7 +37,7 @@ const gallery = [{
 },{
   slug: 'ob',
   title: 'OB',
-  text: '6" x 8" Woodcut',
+  text: '6" x 8" Linocut',
   image: 'ob.jpg',
 }];
 
