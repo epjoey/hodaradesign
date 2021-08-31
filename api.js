@@ -1,4 +1,4 @@
-const stripe = require('stripe')('sk_test_wGHvREvf3V8LMGUD5njU2OFU');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 let createCustomer = function(req, res){
   if(req.method !== 'POST'){

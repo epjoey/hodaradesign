@@ -6,6 +6,8 @@ const api = require('./api');
 const port = process.env.PORT || 8080;
 const app = express();
 
+require("dotenv").config(); // loads the vars from the .env file into process.env
+
 app.use(express.static(__dirname + '/dist'));
 app.use(express.static(__dirname + '/static'));
 
