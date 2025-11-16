@@ -34,16 +34,6 @@ class Display extends React.Component {
           {this.props.piece.title}
         </div>
         <div className='text wide text-center b-space'>{this.props.piece.text}</div>
-        <div className="text-center b-space">
-          {this.props.piece.isInCart() ? (
-            <span>
-              <span className="text r-space">Added</span>
-              <button className="btn" onClick={() => this.props.piece.removeFromCart()}>Remove</button>
-            </span>
-          ) : this.props.piece.price &&
-            <button className="btn" onClick={() => this.props.piece.addToCart()}>Trade ({this.props.piece.price})</button>
-          }
-        </div>
       </div>
     )
   }
