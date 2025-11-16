@@ -14,17 +14,21 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Setup node.js environment
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18      
-        
-      - name: Npm install & npm build
+          node-version: 18
+      
+      - run: node -v  # debug
+      
+      - name: Install and Build
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
         run: |
-          npm install
+          npm ci
           npm run build
-          
+
       - name: S3 Sync
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
