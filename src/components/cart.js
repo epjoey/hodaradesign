@@ -1,5 +1,5 @@
 import React from 'react';
-import gallery from '../../../gallery';
+import gallery from '../gallery';
 import cart from '../services/cart';
 import paths from '../services/paths';
 import Link from './Link';

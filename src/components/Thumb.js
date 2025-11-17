@@ -3,9 +3,9 @@ import React from 'react';
 
 class Thumb extends React.Component {
   render() {
-    let src = this.props.piece.thumb || '/thumbnail/' + this.props.piece.image;
+    let src = '/images/art/' + this.props.piece.image;
     return (
-      <img width={this.props.width} src={src} />
+      <img width='150' src={src} />
     );
   }  
 };

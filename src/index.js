@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import gallery from '../gallery';
-import cart from './js/services/cart';
-import paths from './js/services/paths';
-import Gallery from './js/components/Gallery';
-import Checkout from './js/components/Checkout';
-import Link from './js/components/Link';
-import Header from './js/components/Header';
+import gallery from './gallery';
+import cart from './services/cart';
+import paths from './services/paths';
+import Gallery from './components/Gallery';
+import Checkout from './components/Checkout';
+import Link from './components/Link';
+import Header from './components/Header';
 
 
 class Index extends React.Component {
