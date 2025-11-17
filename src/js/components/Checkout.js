@@ -1,6 +1,6 @@
 import React from 'react';
 import cart from '../services/cart';
-import Cart from './Cart';
+import Cart from './cart';
 
 
 class Checkout extends React.Component {
